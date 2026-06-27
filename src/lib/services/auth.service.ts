@@ -1,9 +1,6 @@
 import bcrypt from "bcryptjs";
-import { SignJWT, jwtVerify } from "jose";
 import { prisma } from "@/lib/db/prisma";
-
-const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET ?? "default-secret");
-const TOKEN_EXPIRY = "24h";
+import { generateToken } from "@/lib/jwt";
 
 export async function hashPassword(password: string): Promise<string> {
   return bcrypt.hash(password, 10);
@@ -14,31 +11,6 @@ export async function comparePassword(
   hash: string
 ): Promise<boolean> {
   return bcrypt.compare(password, hash);
-}
-
-export async function generateToken(user: {
-  id: string;
-  email: string;
-  role: string;
-}): Promise<string> {
-  return new SignJWT({
-    sub: user.id,
-    email: user.email,
-    role: user.role,
-  })
-    .setProtectedHeader({ alg: "HS256" })
-    .setIssuedAt()
-    .setExpirationTime(TOKEN_EXPIRY)
-    .sign(JWT_SECRET);
-}
-
-export async function verifyToken(token: string) {
-  const { payload } = await jwtVerify(token, JWT_SECRET);
-  return {
-    id: payload.sub as string,
-    email: payload.email as string,
-    role: payload.role as string,
-  };
 }
 
 export async function registerUser(data: {
