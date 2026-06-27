@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
       return error(
         "Validasi gagal",
         400,
-        parsed.error.errors.map((e) => ({
+        parsed.error.issues.map((e) => ({
           field: e.path.join("."),
           message: e.message,
         }))

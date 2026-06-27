@@ -15,7 +15,7 @@ export async function PUT(
       return error(
         "Validasi gagal",
         400,
-        parsed.error.errors.map((e) => ({
+        parsed.error.issues.map((e) => ({
           field: e.path.join("."),
           message: e.message,
         }))
