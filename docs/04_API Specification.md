@@ -49,8 +49,6 @@ Format Error:
 
 "message": "Validation error",
 
-1
-
 "errors": []
 
 }
@@ -125,9 +123,7 @@ Response
 
 "success": true,
 
-3
-
-"data": {
+"data": {
 
 "id": "uuid",
 
@@ -179,9 +175,7 @@ GET
 
 Response
 
-4
-
-{
+{
 
 "success": true,
 
@@ -232,9 +226,7 @@ PUT
 
 /api/admin/diseases/{id}
 
-5
-
-Delete Disease
+Delete Disease
 
 DELETE
 
@@ -276,9 +268,7 @@ GET
 
 /api/symptoms/{id}
 
-6
-
-Create Symptom
+Create Symptom
 
 POST
 
@@ -312,9 +302,7 @@ Response
 
 "success": true,
 
-7
-
-"data": []
+"data": []
 
 }
 
@@ -360,9 +348,7 @@ DELETE
 
 /api/admin/kb/rules/{id}
 
-8
-
-6. Forward Chaining API
+6. Forward Chaining API
 
 Preview Rule Evaluation
 
@@ -410,9 +396,7 @@ Auth: Optional (guest dapat mengakses)
 
 Request
 
-9
-
-{
+{
 
 "symptoms": [
 
@@ -478,9 +462,7 @@ Response
 
 "data": []
 
-10
-
-Get Diagnosis Detail
+Get Diagnosis Detail
 
 GET
 
@@ -519,9 +501,7 @@ Response
 
 "last_diagnosis": {}
 
-11
-
-Admin Dashboard
+Admin Dashboard
 
 GET
 
@@ -593,9 +573,7 @@ GET
 
 /api/admin/audit-logs
 
-13
-
-Response
+Response
 
 {
 
@@ -629,41 +607,23 @@ Code
 
 Description
 
-200
-
 Success
-
-201
 
 Created
 
-14
-
-Code
+Code
 
 Description
 
-400
-
 Bad Request
-
-401
 
 Unauthorized
 
-403
-
 Forbidden
-
-404
 
 Not Found
 
-422
-
 Validation Error
-
-500
 
 Internal Server Error
 
@@ -695,13 +655,9 @@ Audit Logging
 
 15. API Versioning
 
-Current Version
+Current Version v1
 
-v1
-
-15
-
-Example
+Example
 
 /api/v1/diagnosis
 
@@ -710,6 +666,3 @@ v1
 /api/v1/symptoms
 
 END OF DOCUMENT
-
-16
-

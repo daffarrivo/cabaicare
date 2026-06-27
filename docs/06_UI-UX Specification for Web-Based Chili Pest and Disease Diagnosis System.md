@@ -14,9 +14,7 @@ Sistem Pakar Diagnosis Penyakit Cabai berbasis web yang menggunakan metode Forwa
 
 Chaining dan Certainty Factor.
 
-Dokumen menjadi acuan implementasi frontend menggunakan Next.js dan integrasi dengan backend
-
-service yang telah dirancang pada DOC05.
+Dokumen menjadi acuan implementasi frontend menggunakan Next.js dan integrasi dengan backend service yang telah dirancang pada DOC05.
 
 2. Design Principles
 
@@ -24,21 +22,10 @@ service yang telah dirancang pada DOC05.
 
 Pengguna utama adalah:
 
-•
-
-Petani cabai
-
-•
-
-Penyuluh pertanian
-
-•
-
-Mahasiswa pertanian
-
-•
-
-Administrator sistem
+- Petani cabai
+- Penyuluh pertanian
+- Mahasiswa pertanian
+- Administrator sistem
 
 Interface harus sederhana dan mudah dipahami oleh pengguna non-teknis.
 
@@ -60,41 +47,23 @@ Tablet
 
 Desktop
 
-1
-
-2.3 Fast Diagnosis
+2.3 Fast Diagnosis
 
 Pengguna harus dapat menyelesaikan proses diagnosis dengan langkah minimal.
 
 Target:
 
-•
-
-Maksimal 3 menit per diagnosis
-
-•
-
-Maksimal 15–20 gejala dipilih
+- Maksimal 3 menit per diagnosis
+- Maksimal 15–20 gejala dipilih
 
 2.4 Accessibility
 
 Interface harus:
 
-•
-
-Mudah dibaca
-
-•
-
-Kontras tinggi
-
-•
-
-Tombol berukuran cukup besar
-
-•
-
-Mudah digunakan di lapangan
+- Mudah dibaca
+- Kontras tinggi
+- Tombol berukuran cukup besar
+- Mudah digunakan di lapangan
 
 3. User Roles
 
@@ -102,53 +71,23 @@ Mudah digunakan di lapangan
 
 Hak akses:
 
-•
-
-Melakukan diagnosis (tanpa login)
-
-•
-
-Melihat hasil diagnosis
-
-•
-
-Melihat informasi penyakit
+- Melakukan diagnosis (tanpa login)
+- Melihat hasil diagnosis
+- Melihat informasi penyakit
 
 3.2 Administrator
 
 Hak akses:
 
-•
+- Login sistem
+- Kelola gejala
+- Kelola penyakit
+- Kelola aturan
+- Kelola basis pengetahuan
+- Melihat histori diagnosis
+- Melihat daftar user
 
-Login sistem
-
-•
-
-Kelola gejala
-
-•
-
-Kelola penyakit
-
-•
-
-Kelola aturan
-
-•
-
-Kelola basis pengetahuan
-
-•
-
-Melihat histori diagnosis
-
-•
-
-Melihat daftar user
-
-2
-
-4. Application Sitemap
+4. Application Sitemap
 
 Home (/)
 
@@ -180,33 +119,18 @@ Primary
 
 Representasi:
 
-•
-
-Pertanian
-
-•
-
-Tanaman sehat
-
-•
-
-Alam
+- Pertanian
+- Tanaman sehat
+- Alam
 
 Secondary
 
 #F59E0B
 
-3
+Representasi:
 
-Representasi:
-
-•
-
-Peringatan
-
-•
-
-Diagnosa
+- Peringatan
+- Diagnosa
 
 Danger
 
@@ -214,9 +138,7 @@ Danger
 
 Representasi:
 
-•
-
-Penyakit berat
+- Penyakit berat
 
 Neutral
 
@@ -244,9 +166,7 @@ Body = 16px
 
 Caption = 14px
 
-4
-
-7. Public Pages
+7. Public Pages
 
 7.1 Home Page
 
@@ -256,29 +176,12 @@ Menjelaskan fungsi sistem dan mengarahkan pengguna ke proses diagnosis.
 
 Komponen:
 
-•
-
-Navbar
-
-•
-
-Hero Section
-
-•
-
-Penjelasan Sistem
-
-•
-
-Cara Penggunaan
-
-•
-
-Tombol Mulai Diagnosis
-
-•
-
-Footer
+- Navbar
+- Hero Section
+- Penjelasan Sistem
+- Cara Penggunaan
+- Tombol Mulai Diagnosis
+- Footer
 
 Layout
 
@@ -304,9 +207,7 @@ Tujuan:
 
 Mengumpulkan gejala yang dialami tanaman.
 
-5
-
-Step 1
+Step 1
 
 Pilih fase pertumbuhan:
 
@@ -347,9 +248,7 @@ Menampilkan hasil inferensi.
 
 Komponen:
 
-6
-
-Diagnosis Utama
+Diagnosis Utama
 
 Antraknosa
 
@@ -387,9 +286,7 @@ Password
 
 Button:
 
-7
-
-Masuk
+Masuk
 
 Autentikasi menggunakan Custom JWT / Session Auth.
 
@@ -397,77 +294,36 @@ Autentikasi menggunakan Custom JWT / Session Auth.
 
 Menampilkan:
 
-•
-
-Total gejala
-
-•
-
-Total penyakit
-
-•
-
-Total rules
-
-•
-
-Total diagnosis
-
-•
-
-Total user
+- Total gejala
+- Total penyakit
+- Total rules
+- Total diagnosis
+- Total user
 
 8.3 Gejala Management
 
 Fitur:
 
-•
-
-Tambah gejala
-
-•
-
-Edit gejala
-
-•
-
-Hapus gejala
-
-•
-
-Cari gejala
+- Tambah gejala
+- Edit gejala
+- Hapus gejala
+- Cari gejala
 
 8.4 Penyakit Management
 
 Fitur:
 
-•
-
-CRUD penyakit
-
-•
-
-Upload gambar penyakit
-
-•
-
-Solusi penanganan
+- CRUD penyakit
+- Upload gambar penyakit
+- Solusi penanganan
 
 8.5 Rules Management
 
 Fitur:
 
-•
-
-Membuat aturan Forward Chaining
-
-•
-
-Menentukan nilai MB
-
-•
-
-Menentukan nilai MD
+- Membuat aturan Forward Chaining
+- Menentukan nilai MB
+- Menentukan nilai MD
 
 Contoh:
 
@@ -483,21 +339,10 @@ MD = 0.1
 
 Data:
 
-•
-
-Tanggal
-
-•
-
-Fase tanam
-
-•
-
-Hasil diagnosis
-
-•
-
-Nilai CF
+- Tanggal
+- Fase tanam
+- Hasil diagnosis
+- Nilai CF
 
 9. Responsive Design
 
@@ -507,21 +352,15 @@ Mobile
 
 Layout:
 
-•
-
-Single column
+- Single column
 
 Tablet
 
 768px–1023px
 
-9
+Layout:
 
-Layout:
-
-•
-
-Two columns
+- Two columns
 
 Desktop
 
@@ -529,9 +368,7 @@ Desktop
 
 Layout:
 
-•
-
-Multi-column dashboard
+- Multi-column dashboard
 
 10. UI Components
 
@@ -549,35 +386,20 @@ Card
 
 Menampilkan:
 
-•
-
-Penyakit
-
-•
-
-Statistik
+- Penyakit
+- Statistik
 
 Data Table
 
 Menampilkan data master.
 
-10
-
-Modal
+Modal
 
 Digunakan untuk:
 
-•
-
-Tambah data
-
-•
-
-Edit data
-
-•
-
-Konfirmasi hapus
+- Tambah data
+- Edit data
+- Konfirmasi hapus
 
 Toast Notification
 
@@ -611,9 +433,7 @@ shadcn/ui
 
 Form Validation:
 
-11
-
-Zod
+Zod
 
 React Hook Form
 
@@ -637,27 +457,10 @@ Database Client (pg Pool / ORM)
 
 Aplikasi dianggap memenuhi spesifikasi UI/UX apabila:
 
-•
-
-Pengguna dapat menyelesaikan diagnosis dalam kurang dari 3 menit.
-
-•
-
-Seluruh fitur dapat digunakan pada perangkat mobile.
-
-•
-
-Hasil diagnosis mudah dipahami.
-
-•
-
-Administrator dapat mengelola basis pengetahuan tanpa bantuan developer.
-
-•
-
-Sistem konsisten dengan metode Forward Chaining dan Certainty Factor yang dirancang pada
+- Pengguna dapat menyelesaikan diagnosis dalam kurang dari 3 menit.
+- Seluruh fitur dapat digunakan pada perangkat mobile.
+- Hasil diagnosis mudah dipahami.
+- Administrator dapat mengelola basis pengetahuan tanpa bantuan developer.
+- Sistem konsisten dengan metode Forward Chaining dan Certainty Factor yang dirancang pada
 
 DOC05.
-
-12
-

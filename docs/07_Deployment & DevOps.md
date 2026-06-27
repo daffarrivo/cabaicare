@@ -8,37 +8,16 @@ Status: Production Deployment Specification
 
 1. Tujuan Dokumen
 
-Dokumen ini menjelaskan strategi deployment, DevOps, monitoring, keamanan, backup, dan maintenance
+Dokumen ini menjelaskan strategi deployment, DevOps, monitoring, keamanan, backup, dan maintenance untuk Sistem Pakar Diagnosis Penyakit Cabai berbasis web.
 
-untuk Sistem Pakar Diagnosis Penyakit Cabai berbasis web.
+Dokumen menjadi acuan implementasi lingkungan produksi berdasarkan arsitektur yang telah dirancang pada:
 
-Dokumen menjadi acuan implementasi lingkungan produksi berdasarkan arsitektur yang telah dirancang
-
-pada:
-
-•
-
-DOC 01 — Product Requirements Document
-
-•
-
-DOC 02 — Software Requirement Specification
-
-•
-
-DOC 03 — Software Architecture Document
-
-•
-
-DOC 04 — API Specification
-
-•
-
-DOC 05 — Knowledge Base & Inference Engine Design
-
-•
-
-DOC 06 — UI/UX Specification
+- DOC 01 — Product Requirements Document
+- DOC 02 — Software Requirement Specification
+- DOC 03 — Software Architecture Document
+- DOC 04 — API Specification
+- DOC 05 — Knowledge Base & Inference Engine Design
+- DOC 06 — UI/UX Specification
 
 2. Deployment Architecture
 
@@ -77,29 +56,12 @@ Vercel
 
 Responsibilities:
 
-•
-
-Render UI
-
-•
-
-Static Asset Delivery
-
-•
-
-Server Components
-
-•
-
-Route Handlers
-
-•
-
-Middleware
-
-•
-
-Authentication Session Handling
+- Render UI
+- Static Asset Delivery
+- Server Components
+- Route Handlers
+- Middleware
+- Authentication Session Handling
 
 Backend
 
@@ -117,9 +79,7 @@ Validation Layer
 
 Tidak memerlukan server terpisah.
 
-2
-
-Database
+Database
 
 Provider:
 
@@ -127,29 +87,12 @@ PostgreSQL (Direct Connection / pg Pool)
 
 Responsibilities:
 
-•
-
-Menyimpan data gejala
-
-•
-
-Menyimpan data penyakit
-
-•
-
-Menyimpan data fase pertumbuhan
-
-•
-
-Menyimpan rules
-
-•
-
-Menyimpan histori diagnosis
-
-•
-
-Menyimpan data administrator
+- Menyimpan data gejala
+- Menyimpan data penyakit
+- Menyimpan data fase pertumbuhan
+- Menyimpan rules
+- Menyimpan histori diagnosis
+- Menyimpan data administrator
 
 Development
 
@@ -167,29 +110,17 @@ DATABASE_URL="postgresql://prod_user:prod_password@host:5432/cabaicare"
 
 JWT_SECRET="your-production-jwt-secret-key"
 
-3
-
-Security Rules
+Security Rules
 
 Jangan pernah mengekspos:
 
-DATABASE_URL atau JWT_SECRET
-
-ke frontend.
+DATABASE_URL atau JWT_SECRET ke frontend.
 
 Hanya digunakan pada:
 
-•
-
-Route Handlers
-
-•
-
-Server Actions
-
-•
-
-Backend Service
+- Route Handlers
+- Server Actions
+- Backend Service
 
 5. Build Pipeline
 
@@ -215,31 +146,21 @@ Vercel Build
 
 Production Deployment
 
-4
+Branch Strategy
 
-Branch Strategy
-
-Main
-
-main
+Main main
 
 Production branch.
 
-Development
-
-develop
+Development develop
 
 Testing branch.
 
-Feature
-
-feature/*
+Feature feature/*
 
 Contoh:
 
-feature/diagnosis
-
-feature/admin-dashboard
+feature/diagnosis feature/admin-dashboard
 
 feature/rules-management
 
@@ -251,45 +172,29 @@ Deployment otomatis berjalan saat:
 
 Push ke main
 
-5
-
-Pipeline
+Pipeline
 
 Step 1
 
-Install dependencies
-
-npm install
+Install dependencies npm install
 
 Step 2
 
-Linting
-
-npm run lint
+Linting npm run lint
 
 Step 3
 
-Type Checking
-
-npm run type-check
+Type Checking npm run type-check
 
 Step 4
 
-Build Application
-
-npm run build
+Build Application npm run build
 
 Step 5
 
-Deploy
+Deploy vercel deploy
 
-vercel deploy
-
-6
-
-Migration Folder
-
-migrations/ (atau prisma/migrations jika menggunakan Prisma)
+Migration Folder migrations/ (atau prisma/migrations jika menggunakan Prisma)
 
 Contoh:
 
@@ -321,13 +226,9 @@ Provider:
 
 Local Storage / Cloud Object Storage (e.g. AWS S3)
 
-7
+Storage Bucket
 
-Storage Bucket
-
-Disease Images
-
-disease-images
+Disease Images disease-images
 
 Menyimpan gambar penyakit.
 
@@ -345,9 +246,7 @@ Admin Login
 
 Next.js API Auth / DB Verify
 
-8
-
-      │
+      │
 
       ▼
 
@@ -379,29 +278,13 @@ admin
 
 Administrator memiliki akses penuh terhadap:
 
-•
+- Gejala
+- Penyakit
+- Rules
+- Histori Diagnosis
+- Daftar User
 
-Gejala
-
-•
-
-Penyakit
-
-•
-
-Rules
-
-•
-
-Histori Diagnosis
-
-•
-
-Daftar User
-
-9
-
-11. Monitoring
+11. Monitoring
 
 Application Monitoring
 
@@ -411,21 +294,10 @@ Vercel Analytics
 
 Metrics:
 
-•
-
-Page Views
-
-•
-
-Traffic
-
-•
-
-Response Time
-
-•
-
-Errors
+- Page Views
+- Traffic
+- Response Time
+- Errors
 
 Database Monitoring
 
@@ -435,21 +307,10 @@ Database Dashboard / pgAdmin / Neon Dashboard
 
 Metrics:
 
-•
-
-Query Performance
-
-•
-
-Database Usage
-
-•
-
-Storage Usage
-
-•
-
-Authentication Activity
+- Query Performance
+- Database Usage
+- Storage Usage
+- Authentication Activity
 
 12. Logging Strategy
 
@@ -461,9 +322,7 @@ Login Admin
 
 Diagnosis
 
-10
-
-Rule Evaluation
+Rule Evaluation
 
 System Error
 
@@ -495,9 +354,7 @@ Retention Policy
 
 30 Days
 
-11
-
-14. Disaster Recovery
+14. Disaster Recovery
 
 Failure Scenario
 
@@ -525,43 +382,25 @@ Frontend
 
 Menggunakan:
 
-Server Components
+Server Components untuk mengurangi JavaScript client-side.
 
-untuk mengurangi JavaScript client-side.
-
-12
-
-Data Fetching
+Data Fetching
 
 Menggunakan:
 
-Server Actions
+Server Actions dan
 
-dan
-
-Route Handlers
-
-untuk mengurangi latency.
+Route Handlers untuk mengurangi latency.
 
 Image Optimization
 
 Menggunakan:
 
-next/image
+next/image untuk:
 
-untuk:
-
-•
-
-Lazy Loading
-
-•
-
-Responsive Images
-
-•
-
-Automatic Optimization
+- Lazy Loading
+- Responsive Images
+- Automatic Optimization
 
 16. Scalability Plan
 
@@ -575,99 +414,43 @@ Future Scale
 
 Jika trafik meningkat:
 
-13
+Vercel Pro
 
-Vercel Pro
-
-Upgrade database tier / performance pool
-
-dapat digunakan tanpa perubahan arsitektur besar.
+Upgrade database tier / performance pool dapat digunakan tanpa perubahan arsitektur besar.
 
 17. Security Checklist
 
 Sebelum produksi:
 
-•
-
-HTTPS aktif
-
-•
-
-Environment Variable aman
-
-•
-
-Database constraints & input validation active
-
-•
-
-Route admin diproteksi
-
-•
-
-Input Validation menggunakan Zod
-
-•
-
-Sanitasi input pengguna
-
-•
-
-Error Handling aktif
-
-•
-
-Backup otomatis aktif
+- HTTPS aktif
+- Environment Variable aman
+- Database constraints & input validation active
+- Route admin diproteksi
+- Input Validation menggunakan Zod
+- Sanitasi input pengguna
+- Error Handling aktif
+- Backup otomatis aktif
 
 18. Production Readiness Checklist
 
 Functional
 
-•
-
-Diagnosis berjalan normal
-
-•
-
-Forward Chaining berjalan normal
-
-•
-
-Certainty Factor berjalan normal
-
-•
-
-CRUD admin berjalan normal
+- Diagnosis berjalan normal
+- Forward Chaining berjalan normal
+- Certainty Factor berjalan normal
+- CRUD admin berjalan normal
 
 Security
 
-•
-
-Authentication aktif
-
-•
-
-Authorization aktif
-
-•
-
-HTTPS aktif
+- Authentication aktif
+- Authorization aktif
+- HTTPS aktif
 
 Reliability
 
-•
-
-Backup aktif
-
-•
-
-Monitoring aktif
-
-14
-
-•
-
-Logging aktif
+- Backup aktif
+- Monitoring aktif
+- Logging aktif
 
 19. Final Deployment Stack
 
@@ -706,9 +489,5 @@ Validation:
 
 20. Conclusion
 
-Arsitektur deployment menggunakan Next.js Fullstack dan PostgreSQL memungkinkan sistem pakar berjalan
-dengan biaya operasional rendah, proses deployment sederhana, maintenance mudah, serta tetap mampu
-mendukung proses inferensi Forward Chaining dan Certainty Factor secara efisien pada lingkungan
-produksi.
-
-15
+Arsitektur deployment menggunakan Next.js Fullstack dan PostgreSQL memungkinkan sistem pakar berjalan dengan biaya operasional rendah, proses deployment sederhana, maintenance mudah, serta tetap mampu
+mendukung proses inferensi Forward Chaining dan Certainty Factor secara efisien pada lingkungan produksi.

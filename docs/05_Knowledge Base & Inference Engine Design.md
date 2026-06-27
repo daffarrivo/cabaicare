@@ -10,43 +10,20 @@ Engine) pada Sistem Pakar Diagnosis Penyakit Tanaman Cabai.
 
 Sistem menggunakan kombinasi metode:
 
-•
+- Forward Chaining sebagai mekanisme penalaran berbasis aturan (rule-based reasoning)
+- Certainty Factor (CF) sebagai metode pengukuran tingkat keyakinan hasil diagnosis
 
-Forward Chaining sebagai mekanisme penalaran berbasis aturan (rule-based reasoning)
-
-•
-
-Certainty Factor (CF) sebagai metode pengukuran tingkat keyakinan hasil diagnosis
-
-Pendekatan ini memungkinkan sistem memberikan hasil diagnosis berdasarkan gejala yang dipilih
-
-pengguna serta tingkat keyakinan terhadap gejala tersebut.
+Pendekatan ini memungkinkan sistem memberikan hasil diagnosis berdasarkan gejala yang dipilih pengguna serta tingkat keyakinan terhadap gejala tersebut.
 
 2. Knowledge Base Design
 
-Knowledge Base merupakan komponen utama yang menyimpan seluruh pengetahuan pakar dalam
+Knowledge Base merupakan komponen utama yang menyimpan seluruh pengetahuan pakar dalam bentuk:
 
-bentuk:
-
-•
-
-Data fase pertumbuhan tanaman
-
-•
-
-Data penyakit
-
-•
-
-Data gejala
-
-•
-
-Nilai Certainty Factor pakar
-
-•
-
-Aturan inferensi
+- Data fase pertumbuhan tanaman
+- Data penyakit
+- Data gejala
+- Nilai Certainty Factor pakar
+- Aturan inferensi
 
 3. Growth Phase Knowledge
 
@@ -78,9 +55,7 @@ Pembungaan hingga pembentukan buah
 
 Keberadaan fase digunakan sebagai filter awal untuk mempersempit ruang pencarian penyakit.
 
-1
-
-4. Disease Knowledge Structure
+4. Disease Knowledge Structure
 
 Sistem menyimpan 11 entitas penyakit.
 
@@ -168,9 +143,7 @@ Isi buah meluruh keluar
 
 Setiap gejala memiliki bobot Certainty Factor yang diberikan oleh pakar.
 
-2
-
-6. Certainty Factor Knowledge
+6. Certainty Factor Knowledge
 
 Setiap relasi penyakit dan gejala memiliki nilai keyakinan pakar.
 
@@ -218,9 +191,7 @@ G31
 
 0.90
 
-Nilai ini menunjukkan tingkat kepercayaan pakar bahwa suatu gejala mendukung keberadaan penyakit
-
-tertentu.
+Nilai ini menunjukkan tingkat kepercayaan pakar bahwa suatu gejala mendukung keberadaan penyakit tertentu.
 
 7. Rule Base Design
 
@@ -244,9 +215,7 @@ IF Fase = F02 AND Gejala = G22
 
 THEN Penyakit = P05
 
-3
-
-Rule-003
+Rule-003
 
 IF Fase = F03 AND Gejala = G08
 
@@ -300,9 +269,7 @@ Forward Chaining menggunakan pendekatan data-driven.
 
 Proses dimulai dari fakta yang diberikan pengguna.
 
-4
-
-Tahapan:
+Tahapan:
 
 1.
 
@@ -340,13 +307,8 @@ CF(H,E) = CFpakar × CFuser
 
 Keterangan:
 
-•
-
-CFpakar = nilai keyakinan pakar
-
-•
-
-CFuser = nilai keyakinan pengguna
+- CFpakar = nilai keyakinan pakar
+- CFuser = nilai keyakinan pengguna
 
 Jika terdapat lebih dari satu gejala:
 
@@ -366,17 +328,10 @@ Input:
 
 Fase = F02
 
-5
+Gejala:
 
-Gejala:
-
-•
-
-G01 → CF User = 1.0
-
-•
-
-G22 → CF User = 1.0
+- G01 → CF User = 1.0
+- G22 → CF User = 1.0
 
 Perhitungan:
 
@@ -398,27 +353,14 @@ Confidence = 84%
 
 Knowledge Base direpresentasikan dalam beberapa entitas utama:
 
-•
+- phases
+- diseases
+- symptoms
+- •
 
-phases
+disease_symptoms rules
 
-•
-
-diseases
-
-•
-
-symptoms
-
-•
-•
-
-disease_symptoms
-rules
-
-•
-
-diagnoses
+- diagnoses
 
 Relasi utama:
 
@@ -430,41 +372,18 @@ Phase 1 → N Rules
 
 Rules N → 1 Disease
 
-6
-
-13. Design Considerations
+13. Design Considerations
 
 Beberapa pertimbangan desain:
 
-•
-
-Knowledge Base dapat diperbarui tanpa mengubah source code.
-
-•
-
-Nilai CF pakar dapat disesuaikan berdasarkan validasi pakar pertanian.
-
-•
-
-Aturan dapat ditambahkan untuk penyakit baru.
-
-•
-
-Filtering fase mengurangi false diagnosis.
-
-•
-
-Inference Engine dipisahkan dari layer presentasi sehingga mudah dikembangkan.
+- Knowledge Base dapat diperbarui tanpa mengubah source code.
+- Nilai CF pakar dapat disesuaikan berdasarkan validasi pakar pertanian.
+- Aturan dapat ditambahkan untuk penyakit baru.
+- Filtering fase mengurangi false diagnosis.
+- Inference Engine dipisahkan dari layer presentasi sehingga mudah dikembangkan.
 
 14. Conclusion
 
-Knowledge Base dirancang sebagai representasi digital pengetahuan pakar mengenai penyakit tanaman
+Knowledge Base dirancang sebagai representasi digital pengetahuan pakar mengenai penyakit tanaman cabai. Mesin inferensi menggunakan Forward Chaining untuk menemukan kandidat penyakit dan Certainty
 
-cabai. Mesin inferensi menggunakan Forward Chaining untuk menemukan kandidat penyakit dan Certainty
-
-Factor untuk menghitung tingkat keyakinan diagnosis. Kombinasi kedua metode tersebut menghasilkan
-
-proses diagnosis yang terstruktur, fleksibel, dan mudah dikembangkan pada versi sistem berikutnya.
-
-7
-
+Factor untuk menghitung tingkat keyakinan diagnosis. Kombinasi kedua metode tersebut menghasilkan proses diagnosis yang terstruktur, fleksibel, dan mudah dikembangkan pada versi sistem berikutnya.

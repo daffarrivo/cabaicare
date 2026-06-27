@@ -22,17 +22,11 @@ Sistem Pakar Diagnosa Penyakit Tanaman Cabai Menggunakan Metode Forward Chaining
 
 Project Description
 
-Aplikasi web yang membantu pengguna melakukan identifikasi penyakit tanaman cabai berdasarkan fase
+Aplikasi web yang membantu pengguna melakukan identifikasi penyakit tanaman cabai berdasarkan fase pertumbuhan dan gejala yang dipilih. Sistem menggunakan Forward Chaining sebagai mesin inferensi
 
-pertumbuhan dan gejala yang dipilih. Sistem menggunakan Forward Chaining sebagai mesin inferensi
+awal untuk mencocokkan rule dan melacak kandidat penyakit, kemudian Certainty Factor untuk menghitung persentase keyakinan diagnosis.
 
-awal untuk mencocokkan rule dan melacak kandidat penyakit, kemudian Certainty Factor untuk
-
-menghitung persentase keyakinan diagnosis.
-
-Sistem dirancang agar pengetahuan pakar dapat dikelola secara dinamis melalui dashboard admin tanpa
-
-perlu melakukan perubahan kode ataupun deploy ulang aplikasi.
+Sistem dirancang agar pengetahuan pakar dapat dikelola secara dinamis melalui dashboard admin tanpa perlu melakukan perubahan kode ataupun deploy ulang aplikasi.
 
 2. Background
 
@@ -40,49 +34,24 @@ Tanaman cabai merupakan salah satu komoditas pertanian yang rentan terhadap berb
 
 Proses identifikasi penyakit sering kali membutuhkan bantuan pakar pertanian yang tidak selalu tersedia.
 
-Sistem pakar berbasis web dapat membantu pengguna memperoleh diagnosis awal secara cepat dengan
+Sistem pakar berbasis web dapat membantu pengguna memperoleh diagnosis awal secara cepat dengan memanfaatkan basis pengetahuan yang berasal dari pakar. Metode Forward Chaining digunakan untuk
 
-memanfaatkan basis pengetahuan yang berasal dari pakar. Metode Forward Chaining digunakan untuk
+penalaran berbasis aturan dalam menemukan kandidat penyakit, dan Certainty Factor untuk menghitung tingkat keyakinan diagnosis.
 
-penalaran berbasis aturan dalam menemukan kandidat penyakit, dan Certainty Factor untuk menghitung
-
-tingkat keyakinan diagnosis.
-
-1
-
-3. Objectives
+3. Objectives
 
 Business Objectives
 
-•
-
-Membantu proses identifikasi penyakit tanaman cabai.
-
-•
-
-Menyediakan solusi penanganan awal penyakit.
-
-•
-
-Mendigitalisasi pengetahuan pakar pertanian.
+- Membantu proses identifikasi penyakit tanaman cabai.
+- Menyediakan solusi penanganan awal penyakit.
+- Mendigitalisasi pengetahuan pakar pertanian.
 
 Academic Objectives
 
-•
-
-Implementasi metode Forward Chaining.
-
-•
-
-Implementasi metode Certainty Factor.
-
-•
-
-Implementasi konsep Sistem Pakar.
-
-•
-
-Mendukung kebutuhan penelitian akademik dan tugas akhir.
+- Implementasi metode Forward Chaining.
+- Implementasi metode Certainty Factor.
+- Implementasi konsep Sistem Pakar.
+- Mendukung kebutuhan penelitian akademik dan tugas akhir.
 
 4. Target Users
 
@@ -90,79 +59,33 @@ User
 
 Karakteristik:
 
-•
-
-Petani cabai
-
-•
-
-Mahasiswa
-
-•
-
-Penyuluh pertanian
-
-•
-
-Masyarakat umum
+- Petani cabai
+- Mahasiswa
+- Penyuluh pertanian
+- Masyarakat umum
 
 Kebutuhan:
 
-•
-
-Diagnosis cepat
-
-•
-
-Mudah digunakan
-
-•
-
-Tidak membutuhkan pengetahuan teknis
+- Diagnosis cepat
+- Mudah digunakan
+- Tidak membutuhkan pengetahuan teknis
 
 Admin / Pakar
 
 Karakteristik:
 
-•
-
-Pakar pertanian
-
-•
-
-Peneliti
-
-•
-
-Pengelola sistem
+- Pakar pertanian
+- Peneliti
+- Pengelola sistem
 
 Kebutuhan:
 
-•
-
-Mengelola knowledge base
-
-2
-
-•
-
-Mengelola gejala
-
-•
-
-Mengelola penyakit
-
-•
-
-Mengelola rule
-
-•
-
-Mengubah nilai Certainty Factor
-
-•
-
-Melihat riwayat diagnosa
+- Mengelola knowledge base
+- Mengelola gejala
+- Mengelola penyakit
+- Mengelola rule
+- Mengubah nilai Certainty Factor
+- Melihat riwayat diagnosa
 
 5. Product Scope
 
@@ -170,117 +93,45 @@ Included Scope
 
 Landing Page
 
-•
-
-Hero Section
-
-•
-
-About System
-
-•
-
-Feature Overview
-
-•
-
-How It Works
-
-•
-
-About Certainty Factor
-
-•
-
-CTA Consultation
+- Hero Section
+- About System
+- Feature Overview
+- How It Works
+- About Certainty Factor
+- CTA Consultation
 
 Diagnosis Module
 
-•
-
-Gejala Selection
-
-•
-
-Certainty Factor Calculation
-
-•
-
-Diagnosis Result
+- Gejala Selection
+- Certainty Factor Calculation
+- Diagnosis Result
 
 Result Module
 
-•
-
-Disease Name
-
-•
-
-Confidence Percentage
-
-•
-
-Selected Symptoms
-
-•
-
-Treatment Recommendation
+- Disease Name
+- Confidence Percentage
+- Selected Symptoms
+- Treatment Recommendation
 
 Admin Module
 
-•
+- Authentication
+- Dashboard
+- Symptom Management
+- Disease Management
+- Knowledge Base Management
+- Consultation History
 
-Authentication
-
-•
-
-Dashboard
-
-•
-
-Symptom Management
-
-•
-
-Disease Management
-
-•
-
-Knowledge Base Management
-
-•
-
-Consultation History
-
-3
-
-Excluded Scope
+Excluded Scope
 
 Versi awal tidak mencakup:
 
-•
-
-AI Chatbot
-
-•
-
-Machine Learning
-
-•
-
-Computer Vision
-
-•
-
-Image Upload Diagnosis
-
-•
-
-Mobile Native Application
-
-•
-
-Multi Language Support
+- AI Chatbot
+- Machine Learning
+- Computer Vision
+- Image Upload Diagnosis
+- Mobile Native Application
+- Multi Language Support
 
 6. Core Features
 
@@ -292,25 +143,11 @@ Memberikan informasi mengenai sistem kepada pengguna.
 
 Components
 
-•
-
-Navbar
-
-•
-
-Hero Section
-
-•
-
-Features Section
-
-•
-
-How It Works
-
-•
-
-Footer
+- Navbar
+- Hero Section
+- Features Section
+- How It Works
+- Footer
 
 FTR-02 Consultation
 
@@ -330,9 +167,7 @@ Output
 
 Daftar gejala yang dipilih pengguna dan kandidat penyakit hasil Forward Chaining.
 
-4
-
-FTR-03 Certainty Factor Engine
+FTR-03 Certainty Factor Engine
 
 Purpose
 
@@ -354,133 +189,60 @@ FTR-04 Diagnosis Result
 
 Output
 
-•
-
-Nama penyakit
-
-•
-
-Persentase keyakinan
-
-•
-
-Nilai CF
-
-•
-
-Gejala terkait
-
-•
-
-Solusi penanganan
+- Nama penyakit
+- Persentase keyakinan
+- Nilai CF
+- Gejala terkait
+- Solusi penanganan
 
 FTR-05 Admin Dashboard
 
 Output
 
-•
-
-Total gejala
-
-•
-
-Total penyakit
-
-•
-
-Total konsultasi
-
-•
-
-Statistik sistem
+- Total gejala
+- Total penyakit
+- Total konsultasi
+- Statistik sistem
 
 FTR-06 Symptom Management
 
 Admin dapat:
 
-•
+- Create symptom
+- Read symptom
+- Update symptom
+- Delete symptom
 
-Create symptom
-
-•
-
-Read symptom
-
-•
-
-Update symptom
-
-•
-
-Delete symptom
-
-5
-
-FTR-07 Disease Management
+FTR-07 Disease Management
 
 Admin dapat:
 
-•
-
-Create disease
-
-•
-
-Read disease
-
-•
-
-Update disease
-
-•
-
-Delete disease
+- Create disease
+- Read disease
+- Update disease
+- Delete disease
 
 FTR-08 Knowledge Base Management
 
 Admin dapat:
 
-•
-
-Menambah rule
-
-•
-
-Mengubah rule
-
-•
-
-Menghapus rule
+- Menambah rule
+- Mengubah rule
+- Menghapus rule
 
 Admin dapat:
 
-•
-
-Menambah relasi gejala-penyakit
-
-•
-
-Mengubah relasi gejala-penyakit
-
-•
-
-Menghapus relasi gejala-penyakit
+- Menambah relasi gejala-penyakit
+- Mengubah relasi gejala-penyakit
+- Menghapus relasi gejala-penyakit
 
 FTR-09 Certainty Factor Management
 
 Admin dapat:
 
-•
-
-Menambah nilai CF
-
-•
-
-Mengubah nilai CF
-
-•
-
-Menghapus nilai CF
+- Menambah nilai CF
+- Mengubah nilai CF
+- Menghapus nilai CF
 
 Perubahan harus langsung aktif tanpa deploy ulang aplikasi.
 
@@ -488,25 +250,12 @@ FTR-10 Consultation History
 
 Admin dapat melihat:
 
-•
+- Waktu konsultasi
+- Gejala dipilih
+- Hasil penyakit
+- Persentase keyakinan
 
-Waktu konsultasi
-
-•
-
-Gejala dipilih
-
-•
-
-Hasil penyakit
-
-•
-
-Persentase keyakinan
-
-6
-
-7. Functional Requirements
+7. Functional Requirements
 
 User Requirements
 
@@ -548,9 +297,7 @@ REQ-ADM-03
 
 Admin dapat mengelola penyakit.
 
-7
-
-REQ-ADM-04
+REQ-ADM-04
 
 Admin dapat mengelola knowledge base.
 
@@ -592,9 +339,7 @@ REQ-KB-05
 
 Admin dapat menambah penyakit baru.
 
-8
-
-REQ-KB-06
+REQ-KB-06
 
 Admin dapat menambah rule baru.
 
@@ -610,55 +355,27 @@ Knowledge base harus dapat diperbarui secara real-time melalui dashboard admin.
 
 Performance
 
-•
-
-Initial page load < 3 detik
-
-•
-
-Diagnosis result < 5 detik
+- Initial page load < 3 detik
+- Diagnosis result < 5 detik
 
 Security
 
-•
-
-Custom Authentication (JWT/Session)
-
-•
-
-Protected Admin Routes
-
-•
-
-Role Based Access
+- Custom Authentication (JWT/Session)
+- Protected Admin Routes
+- Role Based Access
 
 Availability
 
-•
-
-Target uptime 99%
+- Target uptime 99%
 
 Browser Compatibility
 
-•
+- Google Chrome
+- Mozilla Firefox
+- Microsoft Edge
+- Safari
 
-Google Chrome
-
-•
-
-Mozilla Firefox
-
-•
-
-Microsoft Edge
-
-•
-
-Safari
-
-9
-
-10. UI / UX Requirements
+10. UI / UX Requirements
 
 Design Direction
 
@@ -666,59 +383,22 @@ Modern Agricultural Technology Web Application
 
 Karakteristik:
 
-•
-
-Clean
-
-•
-
-Professional
-
-•
-
-Premium
-
-•
-
-Modern
-
-•
-
-Human-designed look
-
-•
-
-Tidak terlihat AI-generated
+- Clean
+- Professional
+- Premium
+- Modern
+- Human-designed look
+- Tidak terlihat AI-generated
 
 Visual Style
 
-•
-
-Consistent spacing
-
-•
-
-Modern card design
-
-•
-
-Rounded corners
-
-•
-
-Soft shadows
-
-•
-
-Professional typography
-
-•
-
-Smooth animations
-
-•
-
-Clean color hierarchy
+- Consistent spacing
+- Modern card design
+- Rounded corners
+- Soft shadows
+- Professional typography
+- Smooth animations
+- Clean color hierarchy
 
 Responsive Design
 
@@ -736,16 +416,10 @@ Desktop
 
 Semua halaman wajib responsive dan tidak mengalami layout break pada perangkat mobile.
 
-10
+Accessibility
 
-Accessibility
-
-•
-
-Good color contrast
-
-•
-•
+- Good color contrast
+- •
 
 Readable typography
 Accessible button sizes
@@ -754,33 +428,17 @@ Accessible button sizes
 
 Frontend
 
-•
-
-Next.js 15
-
-•
-
-TypeScript
-
-•
-
-Tailwind CSS v4
-
-•
-
-shadcn/ui
+- Next.js 15
+- TypeScript
+- Tailwind CSS v4
+- shadcn/ui
 
 Backend & Database
 
 Database: PostgreSQL
 
-•
-
-Authentication: Custom JWT / Database Session
-
-•
-
-Storage: Local / Cloud Object Storage
+- Authentication: Custom JWT / Database Session
+- Storage: Local / Cloud Object Storage
 
 Deployment
 
@@ -792,23 +450,15 @@ Backend
 
 Next.js API Routes / pg Pool
 
-11
+12. Database Design (High Level)
 
-12. Database Design (High Level)
-
-users
-
-symptoms
+users symptoms
 
 phases
 
-Field
+Field id
 
-id
-
-email
-
-role
+email role
 
 Type
 
@@ -816,19 +466,13 @@ UUID
 
 String
 
-String
-
-created_at
+String created_at
 
 Timestamp
 
-Field
+Field id
 
-id
-
-code
-
-name
+code name
 
 Type
 
@@ -836,27 +480,17 @@ UUID
 
 String
 
-String
+String description
 
-description
+Text created_at
 
-Text
-
-created_at
+Timestamp updated_at
 
 Timestamp
 
-updated_at
+Field id
 
-Timestamp
-
-Field
-
-id
-
-code
-
-name
+code name
 
 Type
 
@@ -864,25 +498,15 @@ UUID
 
 String
 
-String
+String description
 
-description
+Text created_at
 
-Text
+Timestamp diseases
 
-created_at
+Field id
 
-Timestamp
-
-diseases
-
-Field
-
-id
-
-code
-
-name
+code name
 
 Type
 
@@ -890,83 +514,47 @@ UUID
 
 String
 
-String
+String description
 
-description
+Text solution
 
-Text
+Text created_at
 
-solution
+Timestamp updated_at
 
-Text
-
-created_at
-
-Timestamp
-
-updated_at
-
-Timestamp
-
-12
-
-disease_symptoms
+Timestamp disease_symptoms
 
 consultations
 
-Field
-
-id
+Field id
 
 Type
 
-UUID
+UUID disease_id
 
-disease_id
+UUID symptom_id
 
-UUID
+UUID phase_id
 
-symptom_id
+UUID cf_expert
 
-UUID
+Decimal created_at
 
-phase_id
-
-UUID
-
-cf_expert
-
-Decimal
-
-created_at
+Timestamp updated_at
 
 Timestamp
 
-updated_at
-
-Timestamp
-
-Field
-
-id
+Field id
 
 Type
 
-UUID
+UUID selected_symptoms
 
-selected_symptoms
+JSON diagnosed_disease
 
-JSON
+UUID cf_result
 
-diagnosed_disease
-
-UUID
-
-cf_result
-
-Decimal
-
-consultation_date
+Decimal consultation_date
 
 Timestamp
 
@@ -974,129 +562,48 @@ Timestamp
 
 MVP Success Criteria
 
-•
+- Diagnosis berjalan dengan benar
+- Perhitungan CF sesuai metode
+- Knowledge base dinamis
+- Admin dapat mengubah CF
+- Admin dapat mengubah rule
+- Responsive pada mobile
+- Data tersimpan di PostgreSQL
+- Deployment berhasil di Vercel
 
-Diagnosis berjalan dengan benar
-
-•
-
-Perhitungan CF sesuai metode
-
-•
-
-Knowledge base dinamis
-
-•
-
-Admin dapat mengubah CF
-
-•
-
-Admin dapat mengubah rule
-
-•
-
-Responsive pada mobile
-
-•
-
-Data tersimpan di PostgreSQL
-
-•
-
-Deployment berhasil di Vercel
-
-13
-
-14. Development Roadmap
+14. Development Roadmap
 
 Phase 1 — Frontend Prototype
 
-•
-
-Landing Page
-
-•
-
-Consultation Page
-
-•
-
-Diagnosis Result Page
-
-•
-
-Responsive UI
+- Landing Page
+- Consultation Page
+- Diagnosis Result Page
+- Responsive UI
 
 Phase 2 — Core System
 
-•
-
-PostgreSQL Integration
-
-•
-
-Authentication
-
-•
-
-Forward Chaining Engine
-
-•
-
-Certainty Factor Engine
-
-•
-
-Database Integration
+- PostgreSQL Integration
+- Authentication
+- Forward Chaining Engine
+- Certainty Factor Engine
+- Database Integration
 
 Phase 3 — Admin System
 
-•
-
-Admin Login
-
-•
-
-Dashboard
-
-•
-
-Symptom CRUD
-
-•
-
-Disease CRUD
-
-•
-
-Knowledge Base CRUD
-
-•
-
-Certainty Factor CRUD
+- Admin Login
+- Dashboard
+- Symptom CRUD
+- Disease CRUD
+- Knowledge Base CRUD
+- Certainty Factor CRUD
 
 Phase 4 — Production Ready
 
-•
-
-Testing
-
-•
-
-Performance Optimization
-
-•
-
-Security Review
-
-•
-
-Deployment
-
-•
-
-Documentation
+- Testing
+- Performance Optimization
+- Security Review
+- Deployment
+- Documentation
 
 Final Decisions
 
@@ -1108,9 +615,7 @@ Decision
 
 Certainty Factor
 
-14
-
-Item
+Item
 
 Frontend
 
@@ -1126,9 +631,7 @@ Responsive
 
 Decision
 
-Next.js 16
-
-shadcn/ui
+Next.js 16 shadcn/ui
 
 Tailwind CSS
 
@@ -1163,6 +666,3 @@ Document Status: FINAL APPROVED
 Version: 1.0
 
 Prepared For: Sistem Pakar Diagnosa Penyakit Tanaman Cabai
-
-15
-

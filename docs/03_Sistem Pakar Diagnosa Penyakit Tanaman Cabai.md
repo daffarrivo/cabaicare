@@ -46,65 +46,26 @@ Serverless Web Application
 
 Dokumen ini menjelaskan arsitektur sistem secara menyeluruh meliputi:
 
-•
-
-Struktur sistem
-
-•
-
-Struktur database
-
-•
-
-Arsitektur frontend
-
-•
-
-Arsitektur backend
-
-•
-
-Inference Engine
-
-•
-
-Authentication
-
-•
-
-Deployment
-
-•
-
-Security
-
-•
-
-Integrasi komponen
+- Struktur sistem
+- Struktur database
+- Arsitektur frontend
+- Arsitektur backend
+- Inference Engine
+- Authentication
+- Deployment
+- Security
+- Integrasi komponen
 
 Dokumen ini menjadi acuan utama pada tahap implementasi.
 
-1
-
-2. Gambaran Umum Arsitektur
+2. Gambaran Umum Arsitektur
 
 Sistem menggunakan arsitektur modern berbasis:
 
-•
-
-Next.js 16
-
-•
-
-Next.js API Routes / pg Pool
-
-•
-
-PostgreSQL
-
-•
-
-Vercel
+- Next.js 16
+- Next.js API Routes / pg Pool
+- PostgreSQL
+- Vercel
 
 Arsitektur:
 
@@ -139,53 +100,23 @@ Diagnosis Result
 
 Frontend
 
-•
+- Next.js 15 App Router
+- TypeScript
+- Tailwind CSS
+- Shadcn UI
+- React Hook Form
+- Zod Validation
 
-Next.js 15 App Router
-
-•
-
-TypeScript
-
-•
-
-Tailwind CSS
-
-•
-
-Shadcn UI
-
-•
-
-React Hook Form
-
-•
-
-Zod Validation
-
-2
-
-Backend
+Backend
 
 Next.js API Handlers / Server Actions
 
 Digunakan untuk:
 
-•
-
-Authentication Handling (JWT/Session)
-
-•
-
-Database Query & Operations
-
-•
-
-File Upload Handling
-
-•
-
-Security Layer
+- Authentication Handling (JWT/Session)
+- Database Query & Operations
+- File Upload Handling
+- Security Layer
 
 Database
 
@@ -197,15 +128,11 @@ Deployment
 
 Frontend:
 
-•
-
-Vercel
+- Vercel
 
 Backend:
 
-•
-
-PostgreSQL Cloud / Self-hosted (e.g. Neon, Supabase, RDS)
+- PostgreSQL Cloud / Self-hosted (e.g. Neon, Supabase, RDS)
 
 4. Architecture Pattern
 
@@ -224,16 +151,12 @@ Inference Engine Layer
       │
 Data Access Layer
 
-3
-
-      │
+      │
 Database Layer
 
 5. Frontend Architecture
 
-Struktur Folder
-
-src/
+Struktur Folder src/
 
 ├── app/
 │   ├── page.tsx          (Landing Page)
@@ -272,23 +195,13 @@ Backend menggunakan Next.js API Routes & Server Actions.
 
 Tidak menggunakan Express.js.
 
-4
-
-Tidak menggunakan NestJS.
+Tidak menggunakan NestJS.
 
 Semua operasi dilakukan melalui:
 
-•
-
-Database Connection / pg Pool
-
-•
-
-PostgreSQL
-
-•
-
-Server Actions
+- Database Connection / pg Pool
+- PostgreSQL
+- Server Actions
 
 Custom Authentication (JWT/Session Auth)
 Role:
@@ -297,29 +210,16 @@ Guest
 
 Akses:
 
-•
-
-Diagnosa (tanpa login)
+- Diagnosa (tanpa login)
 
 Admin
 
 Akses:
 
-•
-
-Dashboard
-
-•
-
-Knowledge Base
-
-•
-
-Statistik
-
-•
-
-Lihat Daftar User
+- Dashboard
+- Knowledge Base
+- Statistik
+- Lihat Daftar User
 
 Authentication Flow
 
@@ -337,9 +237,7 @@ JWT Token
 
     │
 
-5
-
-    ▼
+    ▼
 Role Verification
 
     │
@@ -363,25 +261,15 @@ Gejala
 
 Contoh:
 
-•
-
-G01 Daun menguning
-
-•
-
-G02 Daun keriting
+- G01 Daun menguning
+- G02 Daun keriting
 
 Penyakit
 
 Contoh:
 
-•
-
-P01 Antraknosa
-
-•
-
-P02 Layu Fusarium
+- P01 Antraknosa
+- P02 Layu Fusarium
 
 Rule Forward Chaining
 
@@ -391,9 +279,7 @@ IF G01 AND G02 AND G03
 
 THEN P01
 
-6
-
-Disimpan pada database.
+Disimpan pada database.
 
 Certainty Factor
 
@@ -437,9 +323,7 @@ Penyakit Kandidat
 
           │
 
-7
-
-          ▼
+          ▼
 Certainty Factor
 
           │
@@ -481,9 +365,7 @@ CF1 + CF2(1-CF1)
 
 Output:
 
-8
-
-P01 = 0.89
+P01 = 0.89
 
 89%
 
@@ -517,87 +399,43 @@ Rules
   │
   └── Rule_Details
 
-13. Database Tables
+13. Database Tables users
 
-users
+id UUID PK name VARCHAR
 
-id UUID PK
+email VARCHAR role VARCHAR
 
-name VARCHAR
+gejala id UUID PK
 
-email VARCHAR
+kode_gejala VARCHAR nama_gejala TEXT
 
-role VARCHAR
+phases id UUID PK
 
-9
+kode_fase VARCHAR nama_fase VARCHAR
 
-gejala
+deskripsi TEXT penyakit
 
-id UUID PK
+id UUID PK kode_penyakit VARCHAR
 
-kode_gejala VARCHAR
+nama_penyakit VARCHAR deskripsi TEXT
+solusi TEXT pencegahan TEXT
 
-nama_gejala TEXT
+rules id UUID PK
 
-phases
+penyakit_id UUID rule_details
 
-id UUID PK
+id UUID PK rule_id UUID
+gejala_id UUID certainty_factor
 
-kode_fase VARCHAR
+id UUID PK penyakit_id UUID
 
-nama_fase VARCHAR
+gejala_id UUID mb FLOAT
 
-deskripsi TEXT
+md FLOAT cf FLOAT
 
-penyakit
+diagnosa id UUID PK
 
-id UUID PK
-
-kode_penyakit VARCHAR
-
-nama_penyakit VARCHAR
-
-deskripsi TEXT
-solusi TEXT
-
-pencegahan TEXT
-
-rules
-
-id UUID PK
-
-penyakit_id UUID
-
-rule_details
-
-id UUID PK
-
-rule_id UUID
-gejala_id UUID
-
-certainty_factor
-
-id UUID PK
-
-penyakit_id UUID
-
-gejala_id UUID
-
-mb FLOAT
-
-10
-
-md FLOAT
-
-cf FLOAT
-
-diagnosa
-
-id UUID PK
-
-user_id UUID NULLABLE
-
-hasil JSONB
+user_id UUID NULLABLE hasil JSONB
 
 created_at TIMESTAMP
 
@@ -626,9 +464,7 @@ Database Client (pg Pool / ORM)
    ▼
 PostgreSQL
 
-11
-
-Authentication
+Authentication
 
 Custom JWT / Session Auth
 
@@ -644,27 +480,14 @@ Database Security & API Route Protection
 
 Aktif pada:
 
-•
-
-diagnosa
-
-•
-
-users
+- diagnosa
+- users
 
 Data Protection
 
-•
-
-JWT
-
-•
-
-HTTPS
-
-•
-
-Password Hashing
+- JWT
+- HTTPS
+- Password Hashing
 
 16. Responsive Architecture
 
@@ -676,9 +499,7 @@ Mobile < 768px
 
 Tablet 768–1023px
 
-12
-
-Desktop >= 1024px
+Desktop >= 1024px
 
 Layout Mobile
 
@@ -716,15 +537,8 @@ PostgreSQL Database Server
 
 Menggunakan:
 
-•
-
-Vercel Analytics
-
-13
-
-•
-
-Database Logs / Server Logs
+- Vercel Analytics
+- Database Logs / Server Logs
 
 19. Performance Target
 
@@ -744,49 +558,22 @@ Database Query:
 
 Target:
 
-•
-
-1.000+ User
-
-•
-
-10.000+ Diagnosa
-
-•
-
-Unlimited Rule Knowledge Base
+- 1.000+ User
+- 10.000+ Diagnosa
+- Unlimited Rule Knowledge Base
 
 21. Future Enhancement
 
 Fase berikutnya:
 
-•
+- Upload Foto Tanaman
+- AI Image Detection
+- PWA Mobile App
+- Multi Bahasa
+- Export PDF Hasil Diagnosa
+- Dashboard Pakar
 
-Upload Foto Tanaman
-
-•
-
-AI Image Detection
-
-•
-
-PWA Mobile App
-
-•
-
-Multi Bahasa
-
-•
-
-Export PDF Hasil Diagnosa
-
-•
-
-Dashboard Pakar
-
-14
-
-22. Architecture Decision Record (ADR)
+22. Architecture Decision Record (ADR)
 
 ADR-01
 
@@ -812,13 +599,8 @@ ADR-06
 
 Inference Engine menggunakan:
 
-•
-
-Forward Chaining
-
-•
-
-Certainty Factor
+- Forward Chaining
+- Certainty Factor
 
 ADR-07
 
@@ -827,6 +609,3 @@ Responsive Mobile First wajib diterapkan
 END OF DOCUMENT
 
 File Name: 03_SAD_FINAL_Sistem_Pakar_Cabai.md
-
-15
-
