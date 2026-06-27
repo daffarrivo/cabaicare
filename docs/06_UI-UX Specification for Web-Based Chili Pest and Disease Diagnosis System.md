@@ -2,7 +2,7 @@ DOC06 — UI/UX Specification
 
 Sistem Pakar Diagnosis Penyakit Cabai Berbasis Web
 
-Version: 1.0
+Version: 1.1 Updated
 
 Status: Final Design Specification
 
@@ -150,29 +150,27 @@ Melihat daftar user
 
 4. Application Sitemap
 
-Home
+Home (/)
 
 │
-├── Diagnosis
+├── Diagnosis (/diagnosis)
 │   ├── Pilih Fase Tanam
 │   ├── Pilih Gejala
+│   ├── Tingkat Keyakinan
 │   └── Hasil Diagnosis
 
 │
-├── Informasi Penyakit
-
-│
-├── Tentang Sistem
+├── Referensi Penyakit (/diseases)
 
 │
 └── Admin
-    ├── Login
-    ├── Dashboard
-    ├── Gejala
-    ├── Penyakit
-    ├── Rules
-    ├── Riwayat Diagnosis
-    └── Daftar User
+    ├── Login (/admin/login)
+    ├── Dashboard (/admin/dashboard)
+    ├── Gejala (/admin/symptoms)
+    ├── Penyakit (/admin/diseases)
+    ├── Rules (/admin/rules)
+    ├── Riwayat Diagnosis (/admin/history)
+    └── Daftar User (/admin/users)
 
 5. Color System
 
@@ -341,6 +339,8 @@ Pilih tingkat keyakinan.
 
 1.0 = Sangat Yakin
 
+Menggunakan inline segmented control (5 pilihan).
+
 7.3 Result Page
 
 Menampilkan hasil inferensi.
@@ -391,7 +391,7 @@ Button:
 
 Masuk
 
-Autentikasi menggunakan Supabase Auth.
+Autentikasi menggunakan Custom JWT / Session Auth.
 
 8.2 Dashboard
 
@@ -595,7 +595,7 @@ Info
 
 Framework:
 
-Next.js 15
+Next.js 16
 
 Language:
 
@@ -603,7 +603,7 @@ TypeScript
 
 Styling:
 
-Tailwind CSS
+Tailwind CSS v4
 
 Component Library:
 
@@ -619,11 +619,11 @@ React Hook Form
 
 Authentication:
 
-Supabase Auth
+Custom JWT / Session Auth
 
 Storage:
 
-Supabase Storage
+Local Storage / Cloud Object Storage
 
 Backend Communication:
 
@@ -631,7 +631,7 @@ Next.js Route Handlers
 
 Server Actions
 
-Supabase Client
+Database Client (pg Pool / ORM)
 
 12. Success Criteria
 

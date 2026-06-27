@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Stethoscope, Bug, Info } from "lucide-react";
+import { Home, Stethoscope, Bug } from "lucide-react";
 
 const mobileLinks = [
   { href: "/", label: "Beranda", icon: Home },
   { href: "/diagnosis", label: "Diagnosis", icon: Stethoscope },
   { href: "/diseases", label: "Penyakit", icon: Bug },
-  { href: "/about", label: "Tentang", icon: Info },
 ];
 
 export function MobileNav() {

@@ -24,11 +24,11 @@ Approved
 
 Frontend
 
-Next.js 15
+Next.js 16
 
 Backend
 
-Supabase
+Next.js API Routes
 
 Database
 
@@ -92,11 +92,11 @@ Sistem menggunakan arsitektur modern berbasis:
 
 •
 
-Next.js 15
+Next.js 16
 
 •
 
-Supabase
+Next.js API Routes / pg Pool
 
 •
 
@@ -118,12 +118,12 @@ Next.js Frontend
   │
 
   ▼
-Supabase Auth
+Next.js API (JWT/Session Auth)
 
   │
 
   ▼
-Supabase Database
+PostgreSQL Database
 
   │
 
@@ -167,31 +167,31 @@ Zod Validation
 
 Backend
 
-Supabase
+Next.js API Handlers / Server Actions
 
 Digunakan untuk:
 
 •
 
-Authentication
+Authentication Handling (JWT/Session)
 
 •
 
-Database
+Database Query & Operations
 
 •
 
-Storage
+File Upload Handling
 
 •
 
-Security
+Security Layer
 
 Database
 
 PostgreSQL
 
-Managed by Supabase
+Managed PostgreSQL Database
 
 Deployment
 
@@ -205,7 +205,7 @@ Backend:
 
 •
 
-Supabase Cloud
+PostgreSQL Cloud / Self-hosted (e.g. Neon, Supabase, RDS)
 
 4. Architecture Pattern
 
@@ -236,32 +236,39 @@ Struktur Folder
 src/
 
 ├── app/
-│   ├── login
-│   ├── dashboard
-│   ├── diagnosa
-│   ├── riwayat
-│   └── admin
+│   ├── page.tsx          (Landing Page)
+│   ├── layout.tsx        (Root Layout)
+│   ├── globals.css       (Tailwind v4 Theme)
+│   ├── diagnosis/        (Wizard Diagnosis)
+│   ├── diseases/         (Referensi Penyakit)
+│   └── admin/
+│       ├── layout.tsx    (Admin Layout)
+│       ├── login/
+│       ├── dashboard/
+│       ├── symptoms/
+│       ├── diseases/
+│       ├── rules/
+│       ├── history/
+│       └── users/
 
 ├── components/
-│   ├── ui
-│   ├── forms
-│   ├── cards
-│   └── charts
+│   ├── ui/               (shadcn/ui)
+│   ├── diagnosis/        (stepper, symptom-card, result-card)
+│   ├── dashboard/        (sidebar, data-table, statistic-card)
+│   └── layout/           (navbar, footer, mobile-nav)
 
 ├── lib/
-│   ├── supabase
-│   ├── cf
-│   └── forward-chaining
+│   ├── inference-engine.ts
+│   ├── mock-data.ts
+│   ├── db/
+│   ├── utils.ts
+│   └── validations/
 
 ├── hooks/
 
-├── types/
+└── types/
 
-└── utils/
-
-6. Backend Architecture
-
-Backend menggunakan Supabase.
+Backend menggunakan Next.js API Routes & Server Actions.
 
 Tidak menggunakan Express.js.
 
@@ -273,7 +280,7 @@ Semua operasi dilakukan melalui:
 
 •
 
-Supabase Client
+Database Connection / pg Pool
 
 •
 
@@ -283,9 +290,7 @@ PostgreSQL
 
 Server Actions
 
-7. Authentication Architecture
-
-Supabase Auth
+Custom Authentication (JWT/Session Auth)
 Role:
 
 Guest
@@ -320,26 +325,26 @@ Authentication Flow
 
 Login
 
-   │
+    │
 
-   ▼
-Supabase Auth
+    ▼
+Next.js API Auth / DB Verify
 
-   │
+    │
 
-   ▼
+    ▼
 JWT Token
 
-   │
+    │
 
 5
 
-   ▼
+    ▼
 Role Verification
 
-   │
+    │
 
-   ▼
+    ▼
 Dashboard
 
 8. Knowledge Base Architecture
@@ -598,9 +603,9 @@ created_at TIMESTAMP
 
 14. API Architecture
 
-Karena menggunakan Supabase.
+Menggunakan Next.js Route Handlers.
 
-API tidak dibuat manual.
+API dibuat manual di /api/* untuk menghubungkan frontend ke database.
 
 Komunikasi:
 
@@ -609,7 +614,12 @@ Frontend
    │
 
    ▼
-Supabase Client
+Next.js Route Handlers / API
+
+   │
+
+   ▼
+Database Client (pg Pool / ORM)
 
    │
 
@@ -618,11 +628,9 @@ PostgreSQL
 
 11
 
-15. Security Architecture
+Authentication
 
-Authentication
-
-Supabase Auth
+Custom JWT / Session Auth
 
 Authorization
 
@@ -632,7 +640,7 @@ GUEST
 
 ADMIN
 
-Row Level Security
+Database Security & API Route Protection
 
 Aktif pada:
 
@@ -702,7 +710,7 @@ Production
 
 Database:
 
-Supabase Cloud
+PostgreSQL Database Server
 
 18. Monitoring
 
@@ -716,7 +724,7 @@ Vercel Analytics
 
 •
 
-Supabase Logs
+Database Logs / Server Logs
 
 19. Performance Target
 
@@ -782,11 +790,11 @@ Dashboard Pakar
 
 ADR-01
 
-Frontend menggunakan Next.js 15
+Frontend menggunakan Next.js 16
 
 ADR-02
 
-Database menggunakan PostgreSQL via Supabase
+Database menggunakan PostgreSQL
 
 ADR-03
 

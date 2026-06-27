@@ -1,6 +1,6 @@
 01_PRD_FINAL_Sistem_Pakar_Cabai
 
-Version: 1.0 Final
+Version: 1.1 Updated
 
 Status: Approved
 
@@ -8,9 +8,9 @@ Project Type: Expert System Web Application
 
 Method: Forward Chaining + Certainty Factor (CF)
 
-Frontend: Next.js 15 + TypeScript + Tailwind CSS + shadcn/ui
+Frontend: Next.js 16 + TypeScript + Tailwind CSS v4 + shadcn/ui
 
-Database: Supabase
+Database: PostgreSQL
 
 Deployment: Vercel
 
@@ -622,7 +622,7 @@ Security
 
 •
 
-Supabase Authentication
+Custom Authentication (JWT/Session)
 
 •
 
@@ -764,7 +764,7 @@ TypeScript
 
 •
 
-Tailwind CSS
+Tailwind CSS v4
 
 •
 
@@ -772,19 +772,15 @@ shadcn/ui
 
 Backend & Database
 
-Supabase digunakan untuk:
+Database: PostgreSQL
 
 •
 
-PostgreSQL Database
+Authentication: Custom JWT / Database Session
 
 •
 
-Authentication
-
-•
-
-Storage (optional)
+Storage: Local / Cloud Object Storage
 
 Deployment
 
@@ -794,7 +790,7 @@ Vercel
 
 Backend
 
-Supabase
+Next.js API Routes / pg Pool
 
 11
 
@@ -1004,7 +1000,7 @@ Responsive pada mobile
 
 •
 
-Data tersimpan di Supabase
+Data tersimpan di PostgreSQL
 
 •
 
@@ -1036,7 +1032,7 @@ Phase 2 — Core System
 
 •
 
-Supabase Integration
+PostgreSQL Integration
 
 •
 
@@ -1130,13 +1126,13 @@ Responsive
 
 Decision
 
-Next.js 15
+Next.js 16
 
 shadcn/ui
 
 Tailwind CSS
 
-Supabase
+PostgreSQL
 
 Vercel
 

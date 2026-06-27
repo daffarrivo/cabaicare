@@ -12,9 +12,9 @@ Status: Final
 
 Backend: Next.js Route Handlers
 
-Database: Supabase PostgreSQL
+Database: PostgreSQL
 
-Authentication: Supabase Auth + JWT
+Authentication: Custom Auth (JWT / Session)
 Deployment: Vercel
 
 1. API Overview

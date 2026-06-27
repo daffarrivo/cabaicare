@@ -9,7 +9,6 @@ const navLinks = [
   { href: "/", label: "Beranda" },
   { href: "/diagnosis", label: "Diagnosis" },
   { href: "/diseases", label: "Penyakit" },
-  { href: "/about", label: "Tentang" },
 ];
 
 export function Navbar() {

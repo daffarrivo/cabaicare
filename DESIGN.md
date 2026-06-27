@@ -1,7 +1,9 @@
 # DESIGN DOCUMENT
 ## Sistem Pakar Diagnosis Hama dan Penyakit Cabai
 
-Version: 1.0
+Version: 1.1 (Updated)
+
+Tech Stack: Next.js 16 + TypeScript + Tailwind CSS v4 + shadcn/ui
 
 ---
 
@@ -29,17 +31,17 @@ Prinsip UI:
 
 ## Primary Color
 
-Cabai Merah
+Hijau Daun (Emerald)
 
-#DC2626
+#16A34A
 
 ---
 
 ## Secondary Color
 
-Hijau Daun
+Cabai Merah
 
-#16A34A
+#DC2626
 
 ---
 
@@ -147,9 +149,9 @@ Card 4
 
 # 4.2 Diagnosis Wizard
 
-Model:
+Route: /diagnosis
 
-Step Form
+Model: Step Form (4 Steps)
 
 ---
 
@@ -157,13 +159,13 @@ Step Form
 
 Pilih Fase Pertumbuhan
 
-Card Selection
+Card Selection (grid 3 kolom)
 
-[ Persemaian ]
-[ Vegetatif ]
-[ Generatif ]
+[ Pembibitan (F01) ]
+[ Vegetatif (F02) ]
+[ Generatif (F03) ]
 
-Hanya boleh memilih satu.
+Hanya boleh memilih satu. Checkmark animasi muncul pada card terpilih.
 
 Button:
 
@@ -200,24 +202,23 @@ Lanjut
 
 ## STEP 3
 
-Tingkat Keyakinan
+Tingkat Keyakinan (CF User)
 
-Untuk setiap gejala terpilih:
+Untuk setiap gejala terpilih, menggunakan segmented control:
 
 ---
 
 Daun Menguning
 
-○ Tidak Tahu (0)
-○ Sedikit Yakin (0.2)
-○ Cukup Yakin (0.4)
-○ Yakin (0.6)
-○ Sangat Yakin (0.8)
-○ Pasti (1.0)
+○ Tidak Yakin (0.2)
+○ Kurang Yakin (0.4)
+○ Cukup Yakin (0.6)
+○ Yakin (0.8)
+○ Sangat Yakin (1.0)
 
 ---
 
-Gunakan slider atau radio button.
+Menggunakan inline segmented control (5 pilihan).
 
 Button:
 
@@ -351,9 +352,25 @@ Deskripsi singkat penyakit.
 
 ---
 
-# 4.5 History Page
+# 4.5 Disease Catalog Page
 
-Riwayat diagnosis.
+Route: /diseases
+
+Referensi penyakit cabai lengkap.
+
+Komponen:
+
+Search bar + Filter kategori (Semua/Jamur/Bakteri/Virus/Nematoda/Lingkungan)
+Grid card 3 kolom (kode, nama, deskripsi, badge bahaya)
+Dialog detail (deskripsi, penyebab, gejala, solusi, pencegahan)
+
+---
+
+# 4.6 History Page (Admin Only)
+
+Route: /admin/history
+
+Riwayat diagnosis (hanya akses admin).
 
 Table:
 
@@ -372,7 +389,7 @@ Filter:
 
 ---
 
-# 4.6 Admin Dashboard
+# 4.7 Admin Dashboard
 
 Role:
 
@@ -380,21 +397,19 @@ Admin
 
 ---
 
-Menu:
+Menu (Sidebar):
 
-Dashboard
+Dashboard (/admin/dashboard)
 
-Penyakit
+Gejala (/admin/symptoms)
 
-Gejala
+Penyakit (/admin/diseases)
 
-Rule
+Rule (/admin/rules)
 
-Nilai CF
+Riwayat Diagnosa (/admin/history)
 
-Riwayat Diagnosa
-
-User
+User (/admin/users)
 
 ---
 
@@ -416,8 +431,7 @@ Bottom Navigation
 
 [ Home ]
 [ Diagnosa ]
-[ Riwayat ]
-[ Profil ]
+[ Penyakit ]
 
 ---
 
@@ -452,20 +466,22 @@ Merah Gelap
 ## Cards
 
 Border Radius:
-16px
+16px – 24px (rounded-2xl / rounded-3xl)
 
 Shadow:
-Medium
+Soft (shadow-sm, shadow-xs)
+
+Backdrop: blur-sm pada card overlay
 
 ---
 
 ## Inputs
 
 Height:
-48px
+40px
 
 Radius:
-12px
+12px (rounded-xl)
 
 ---
 

@@ -6,15 +6,15 @@ Metode Forward Chaining dan Certainty Factor
 
 Document ID: DOC-02
 
-Version: 1.0 Final
+Version: 1.1 Updated
 
 Status: Approved
 
-Frontend: Next.js 15 + TypeScript + Tailwind CSS + Shadcn/UI
+Frontend: Next.js 16 + TypeScript + Tailwind CSS v4 + Shadcn/UI
 
-Backend: Supabase
+Backend: Next.js API Routes
 
-Database: PostgreSQL (Supabase)
+Database: PostgreSQL
 
 Deployment: Vercel
 
@@ -411,19 +411,15 @@ Menggunakan:
 
 •
 
-Supabase Auth
+Custom Auth Session / JWT
 
 •
 
-JWT
+SQL Injection Protection (Prepared Statements / ORM)
 
 •
 
-RLS
-
-•
-
-Password Hashing
+Password Hashing (bcrypt/argon2)
 
 NFR-03 Scalability
 
@@ -693,7 +689,7 @@ Deploy di Vercel
 
 •
 
-Database menggunakan Supabase
+Database menggunakan PostgreSQL
 
 Technology Stack
 
@@ -701,7 +697,7 @@ Frontend:
 
 •
 
-Next.js 15
+Next.js 16
 
 •
 
@@ -709,7 +705,7 @@ TypeScript
 
 •
 
-Tailwind CSS
+Tailwind CSS v4
 
 •
 
@@ -719,7 +715,7 @@ Backend:
 
 •
 
-Supabase
+Next.js API Routes / pg Pool
 
 Database:
 

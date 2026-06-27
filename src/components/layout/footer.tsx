@@ -36,11 +36,6 @@ export function Footer() {
                   Diagnosis
                 </Link>
               </li>
-              <li>
-                <Link href="/about" className="hover:text-primary transition-colors">
-                  Tentang
-                </Link>
-              </li>
             </ul>
           </div>
 

@@ -65,14 +65,7 @@ Next.js Application
 
           ▼
 
-1
-
-     Supabase
-
-          │
-          ├── PostgreSQL
-          ├── Auth
-          └── Storage
+     PostgreSQL Database (Direct Connection)
 
 3. Infrastructure Overview
 
@@ -130,7 +123,7 @@ Tidak memerlukan server terpisah.
 
 Provider:
 
-Supabase PostgreSQL
+PostgreSQL (Direct Connection / pg Pool)
 
 Responsibilities:
 
@@ -158,27 +151,21 @@ Menyimpan histori diagnosis
 
 Menyimpan data administrator
 
-4. Environment Configuration
-
 Development
 
 NODE_ENV=development
 
-NEXT_PUBLIC_SUPABASE_URL=
+DATABASE_URL="postgresql://user:password@localhost:5432/cabaicare"
 
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-
-SUPABASE_SERVICE_ROLE_KEY=
+JWT_SECRET="your-development-jwt-secret"
 
 Production
 
 NODE_ENV=production
 
-NEXT_PUBLIC_SUPABASE_URL=
+DATABASE_URL="postgresql://prod_user:prod_password@host:5432/cabaicare"
 
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-
-SUPABASE_SERVICE_ROLE_KEY=
+JWT_SECRET="your-production-jwt-secret-key"
 
 3
 
@@ -186,7 +173,7 @@ SUPABASE_SERVICE_ROLE_KEY=
 
 Jangan pernah mengekspos:
 
-SUPABASE_SERVICE_ROLE_KEY
+DATABASE_URL atau JWT_SECRET
 
 ke frontend.
 
@@ -300,11 +287,9 @@ vercel deploy
 
 6
 
-7. Database Migration Strategy
+Migration Folder
 
-Migration Folder
-
-supabase/migrations
+migrations/ (atau prisma/migrations jika menggunakan Prisma)
 
 Contoh:
 
@@ -324,7 +309,7 @@ Migration
 
      ▼
 
-Supabase Database
+PostgreSQL Database
 
      ▼
 
@@ -334,7 +319,7 @@ Application Deployment
 
 Provider:
 
-Supabase Storage
+Local Storage / Cloud Object Storage (e.g. AWS S3)
 
 7
 
@@ -346,11 +331,9 @@ disease-images
 
 Menyimpan gambar penyakit.
 
-9. Authentication Security
-
 Provider
 
-Supabase Auth
+Custom Auth Session / JWT
 
 Login Flow
 
@@ -360,7 +343,7 @@ Admin Login
 
       ▼
 
-Supabase Auth
+Next.js API Auth / DB Verify
 
 8
 
@@ -448,7 +431,7 @@ Database Monitoring
 
 Platform:
 
-Supabase Dashboard
+Database Dashboard / pgAdmin / Neon Dashboard
 
 Metrics:
 
@@ -502,7 +485,7 @@ Database Backup
 
 Provider:
 
-Supabase Backup
+pg_dump / Managed Database Backup
 
 Frekuensi:
 
@@ -528,7 +511,7 @@ Database Failure
 
 Solusi:
 
-Restore dari Backup Supabase
+Restore dari pg_dump / PostgreSQL Backup
 
 Storage Failure
 
@@ -596,7 +579,7 @@ Jika trafik meningkat:
 
 Vercel Pro
 
-Supabase Pro
+Upgrade database tier / performance pool
 
 dapat digunakan tanpa perubahan arsitektur besar.
 
@@ -614,7 +597,7 @@ Environment Variable aman
 
 •
 
-RLS Supabase aktif
+Database constraints & input validation active
 
 •
 
@@ -689,61 +672,43 @@ Logging aktif
 19. Final Deployment Stack
 
 Frontend:
-
-- Next.js 15
+- Next.js 16
 - TypeScript
-
-- Tailwind CSS
-
+- Tailwind CSS v4
 - shadcn/ui
 
 Backend:
-
 - Next.js Route Handlers
-
 - Server Actions
 
 Inference Engine:
-
 - Forward Chaining
-
 - Certainty Factor
 
 Database:
-
-- Supabase PostgreSQL
+- PostgreSQL (Direct Connection / pg Pool)
 
 Authentication:
-
-- Supabase Auth
+- Custom Auth (JWT / Session)
 
 Storage:
-
-- Supabase Storage
+- Local Storage / Cloud Object Storage
 
 Deployment:
-
 - Vercel
 
 Monitoring:
-
 - Vercel Analytics
-
-- Supabase Dashboard
+- Database / Server Logs
 
 Validation:
-
 - Zod
 
 20. Conclusion
 
-Arsitektur deployment menggunakan Next.js Fullstack dan Supabase memungkinkan sistem pakar berjalan
-
+Arsitektur deployment menggunakan Next.js Fullstack dan PostgreSQL memungkinkan sistem pakar berjalan
 dengan biaya operasional rendah, proses deployment sederhana, maintenance mudah, serta tetap mampu
-
 mendukung proses inferensi Forward Chaining dan Certainty Factor secara efisien pada lingkungan
-
 produksi.
 
 15
-

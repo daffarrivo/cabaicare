@@ -35,31 +35,6 @@ export default function AdminDashboardPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Diagnosis Trend Chart Placeholder */}
-        <Card className="lg:col-span-2 border-border bg-white shadow-card rounded-2xl">
-          <CardHeader className="pb-3">
-            <h3 className="font-semibold text-foreground">Tren Diagnosis (Placeholder)</h3>
-          </CardHeader>
-          <CardContent>
-            <div className="flex items-end gap-2 h-40">
-              {[3, 7, 4, 9, 5, 12, 8].map((h, i) => (
-                <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                  <div
-                    className="w-full bg-primary/20 rounded-t-md transition-all hover:bg-primary/40"
-                    style={{ height: `${(h / 12) * 100}%` }}
-                  />
-                  <span className="text-[9px] text-muted-foreground">
-                    {["Sen", "Sel", "Rab", "Kam", "Jum", "Sab", "Min"][i]}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-muted-foreground text-center mt-3">
-              Data simulasi — akan terhubung ke database nyata
-            </p>
-          </CardContent>
-        </Card>
-
         {/* Disease Distribution Placeholder */}
         <Card className="border-border bg-white shadow-card rounded-2xl">
           <CardHeader className="pb-3">
@@ -86,9 +61,8 @@ export default function AdminDashboardPage() {
             </p>
           </CardContent>
         </Card>
-      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Diagnosis Terbaru */}
         <Card className="border-border bg-white shadow-card rounded-2xl">
           <CardHeader>
             <h3 className="font-semibold text-foreground">Diagnosis Terbaru</h3>
@@ -121,6 +95,7 @@ export default function AdminDashboardPage() {
           </CardContent>
         </Card>
 
+        {/* Penyakit Teratas */}
         <Card className="border-border bg-white shadow-card rounded-2xl">
           <CardHeader>
             <h3 className="font-semibold text-foreground">Penyakit Teratas</h3>

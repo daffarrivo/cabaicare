@@ -1,6 +1,6 @@
 DOC 05 — Knowledge Base & Inference Engine
 
-Design
+Design (Version 1.1 Updated)
 
 1. Overview
 

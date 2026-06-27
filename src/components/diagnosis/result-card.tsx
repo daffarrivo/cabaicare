@@ -35,28 +35,31 @@ export function ResultCard({ result }: ResultCardProps) {
   const strokeDashoffset = circumference - (confidencePct / 100) * circumference;
 
   return (
-    <div className="space-y-6 print-card rounded-2xl">
+    <div className="space-y-6 print-card rounded-3xl animate-fade-in-up">
       {/* Main Diagnosis Card */}
-      <Card className="border border-border bg-white shadow-card rounded-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
+      <Card className="border border-zinc-200/60 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04),0_1px_3px_rgba(0,0,0,0.02)] rounded-3xl relative overflow-hidden group">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/[0.03] rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-red-500/[0.01] rounded-full blur-[80px] pointer-events-none" />
 
         <CardHeader className="text-center pb-2 relative z-10 flex flex-col items-center pt-8">
-          <Badge className="mx-auto mb-3 bg-primary/10 text-primary border border-primary/20 text-xs font-extrabold py-1 px-3 uppercase rounded-full">
+          <Badge className="mx-auto mb-3 bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 text-xs font-extrabold py-1 px-3.5 uppercase rounded-full tracking-wide">
             Diagnosis Utama
           </Badge>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-heading tracking-tight text-gradient-cabai uppercase mt-1 leading-tight">
             {result.disease.name}
           </h2>
-          <p className="text-xs text-muted-foreground font-mono mt-1">{result.disease.code}</p>
+          <p className="text-xs text-muted-foreground font-mono mt-2 select-all px-2.5 py-0.5 rounded-md bg-zinc-50 border border-zinc-200/50 w-fit">
+            KODE: {result.disease.code}
+          </p>
         </CardHeader>
 
-        <CardContent className="flex flex-col items-center pt-2 pb-8 relative z-10 space-y-5">
+        <CardContent className="flex flex-col items-center pt-2 pb-8 relative z-10 space-y-6">
           {/* Radial Progress Gauge */}
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center p-5 bg-zinc-50/40 rounded-full border border-zinc-200/30 animate-float shadow-inner">
             <svg className="w-40 h-40 transform -rotate-90">
               <circle
                 stroke={trackColor}
-                strokeWidth="7"
+                strokeWidth="8"
                 fill="transparent"
                 r={radius}
                 cx="80"
@@ -64,7 +67,7 @@ export function ResultCard({ result }: ResultCardProps) {
               />
               <circle
                 stroke={strokeColor}
-                strokeWidth="7"
+                strokeWidth="8"
                 strokeDasharray={circumference}
                 strokeDashoffset={strokeDashoffset}
                 strokeLinecap="round"
@@ -79,7 +82,7 @@ export function ResultCard({ result }: ResultCardProps) {
               <span className="text-4xl font-extrabold text-foreground tracking-tight">
                 {confidencePct}%
               </span>
-              <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider mt-0.5">
+              <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest mt-0.5">
                 CF Score
               </span>
             </div>
@@ -87,7 +90,7 @@ export function ResultCard({ result }: ResultCardProps) {
 
           <div className="text-center space-y-2 max-w-sm">
             <Badge
-              className="text-xs font-bold uppercase tracking-widest"
+              className="text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-md"
               style={{
                 backgroundColor: getTrackColor(confidencePct),
                 color: strokeColor,
@@ -96,67 +99,67 @@ export function ResultCard({ result }: ResultCardProps) {
             >
               {level.label}
             </Badge>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              Hasil diagnosis berdasarkan perhitungan kombinasi Certainty Factor dari gejala yang dipilih.
+            <p className="text-xs text-muted-foreground leading-relaxed font-semibold">
+              Hasil diagnosis berdasarkan perhitungan Certainty Factor dari gejala yang dilaporkan oleh pengguna.
             </p>
           </div>
 
           <Button
             onClick={() => window.print()}
             variant="outline"
-            className="no-print border-border bg-white hover:bg-muted text-xs font-bold uppercase tracking-wider rounded-xl px-5 py-2.5 flex items-center gap-2"
+            className="no-print border-zinc-200 bg-white hover:bg-muted text-xs font-bold uppercase tracking-wider rounded-xl px-5 py-2.5 flex items-center gap-2 transition-all duration-300"
           >
-            <Printer className="h-3.5 w-3.5 text-primary" />
+            <Printer className="h-3.5 w-3.5 text-emerald-600" />
             Cetak / Simpan PDF
           </Button>
         </CardContent>
       </Card>
 
       {/* Deskripsi & Penyebab */}
-      <Card className="rounded-2xl border border-border bg-white shadow-card">
-        <CardHeader className="pb-3 border-b border-border p-5 bg-muted/30">
+      <Card className="rounded-3xl border border-zinc-200/60 bg-white shadow-sm overflow-hidden">
+        <CardHeader className="pb-3 border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
           <div className="flex items-center gap-2">
-            <FlaskConical className="h-4.5 w-4.5 text-primary" />
-            <h3 className="font-bold text-sm text-foreground uppercase tracking-wider">
+            <FlaskConical className="h-4.5 w-4.5 text-emerald-600" />
+            <h3 className="font-bold text-sm text-foreground uppercase tracking-widest">
               Deskripsi & Penyebab
             </h3>
           </div>
         </CardHeader>
-        <CardContent className="p-5 space-y-4">
+        <CardContent className="p-5 md:p-6 space-y-4">
           <div className="space-y-1">
-            <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">
+            <span className="text-[10px] uppercase font-extrabold text-zinc-500 tracking-wider">
               Tentang Penyakit
             </span>
-            <p className="text-sm text-foreground/80 leading-relaxed">{result.disease.description}</p>
+            <p className="text-xs md:text-sm text-foreground/80 leading-relaxed font-semibold">{result.disease.description}</p>
           </div>
-          <Separator className="bg-border" />
+          <Separator className="bg-zinc-100" />
           <div className="space-y-1">
-            <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">
+            <span className="text-[10px] uppercase font-extrabold text-zinc-500 tracking-wider">
               Faktor Penyebab
             </span>
-            <p className="text-sm text-foreground/80 leading-relaxed">{result.disease.cause}</p>
+            <p className="text-xs md:text-sm text-foreground/80 leading-relaxed font-semibold">{result.disease.cause}</p>
           </div>
         </CardContent>
       </Card>
 
       {/* Gejala Teridentifikasi */}
-      <Card className="rounded-2xl border border-border bg-white shadow-card">
-        <CardHeader className="pb-3 border-b border-border p-5 bg-muted/30">
+      <Card className="rounded-3xl border border-zinc-200/60 bg-white shadow-sm overflow-hidden">
+        <CardHeader className="pb-3 border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="h-4.5 w-4.5 text-primary" />
-            <h3 className="font-bold text-sm text-foreground uppercase tracking-wider">
+            <CheckCircle2 className="h-4.5 w-4.5 text-emerald-600 animate-pulse" />
+            <h3 className="font-bold text-sm text-foreground uppercase tracking-widest">
               Gejala Teridentifikasi
             </h3>
           </div>
         </CardHeader>
-        <CardContent className="p-5">
-          <div className="flex flex-wrap gap-2">
+        <CardContent className="p-5 md:p-6">
+          <div className="flex flex-wrap gap-2 select-none">
             {result.matched_symptoms.map((s: Symptom) => (
               <Badge
                 key={s.id}
-                className="bg-primary/5 text-primary border border-primary/15 text-xs font-semibold py-1.5 px-3 rounded-lg flex items-center gap-1.5"
+                className="bg-emerald-500/[0.04] text-emerald-800 border border-emerald-500/20 text-[11px] font-semibold py-1.5 px-3 rounded-xl flex items-center gap-1.5"
               >
-                <Check className="h-3 w-3 text-primary stroke-[3]" />
+                <Check className="h-3 w-3 text-emerald-600 stroke-[3]" />
                 <span className="font-mono font-bold opacity-60">{s.code}</span>: {s.name}
               </Badge>
             ))}
@@ -166,71 +169,70 @@ export function ResultCard({ result }: ResultCardProps) {
 
       {/* Solusi & Pencegahan */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <Card className="border border-border border-l-[3px] border-l-primary bg-white shadow-card rounded-2xl">
-          <CardHeader className="pb-3 border-b border-border p-5 bg-muted/30">
+        <Card className="border border-emerald-500/20 border-l-[4px] border-l-emerald-600 bg-emerald-500/[0.01] shadow-sm rounded-3xl overflow-hidden">
+          <CardHeader className="pb-3 border-b border-emerald-500/10 p-5 bg-emerald-500/[0.03]">
             <div className="flex items-center gap-2">
-              <Shield className="h-4.5 w-4.5 text-primary" />
-              <h3 className="font-bold text-sm text-primary uppercase tracking-wider">
+              <Shield className="h-4.5 w-4.5 text-emerald-600 animate-pulse" />
+              <h3 className="font-bold text-sm text-emerald-800 uppercase tracking-widest">
                 Solusi Penanganan
               </h3>
             </div>
           </CardHeader>
-          <CardContent className="p-5">
-            <p className="text-sm text-foreground/80 leading-relaxed">{result.disease.solution}</p>
+          <CardContent className="p-5 md:p-6">
+            <p className="text-xs md:text-sm text-foreground/80 leading-relaxed font-semibold">{result.disease.solution}</p>
           </CardContent>
         </Card>
 
-        <Card className="border border-border border-l-[3px] border-l-sky-500 bg-white shadow-card rounded-2xl">
-          <CardHeader className="pb-3 border-b border-border p-5 bg-muted/30">
+        <Card className="border border-sky-500/20 border-l-[4px] border-l-sky-500 bg-sky-500/[0.01] shadow-sm rounded-3xl overflow-hidden">
+          <CardHeader className="pb-3 border-b border-sky-500/10 p-5 bg-sky-500/[0.03]">
             <div className="flex items-center gap-2">
-              <FlaskConical className="h-4.5 w-4.5 text-sky-500" />
-              <h3 className="font-bold text-sm text-sky-600 uppercase tracking-wider">
+              <FlaskConical className="h-4.5 w-4.5 text-sky-500 animate-pulse" />
+              <h3 className="font-bold text-sm text-sky-800 uppercase tracking-widest">
                 Tindakan Pencegahan
               </h3>
             </div>
           </CardHeader>
-          <CardContent className="p-5">
-            <p className="text-sm text-foreground/80 leading-relaxed">{result.disease.prevention}</p>
+          <CardContent className="p-5 md:p-6">
+            <p className="text-xs md:text-sm text-foreground/80 leading-relaxed font-semibold">{result.disease.prevention}</p>
           </CardContent>
         </Card>
       </div>
 
       {/* Diagnosis Alternatif */}
       {result.alternative_diagnoses.length > 0 && (
-        <Card className="rounded-2xl border border-border bg-white shadow-card">
-          <CardHeader className="pb-3 border-b border-border p-5 bg-muted/30">
+        <Card className="rounded-3xl border border-zinc-200/60 bg-white shadow-sm overflow-hidden">
+          <CardHeader className="pb-3 border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
             <div className="flex items-center gap-2">
-              <AlertTriangle className="h-4.5 w-4.5 text-yellow-600" />
-              <h3 className="font-bold text-sm text-foreground uppercase tracking-wider">
+              <AlertTriangle className="h-4.5 w-4.5 text-yellow-600 animate-pulse" />
+              <h3 className="font-bold text-sm text-foreground uppercase tracking-widest">
                 Diagnosis Alternatif
               </h3>
             </div>
           </CardHeader>
-          <CardContent className="p-5">
-            <p className="text-xs text-muted-foreground mb-5">
+          <CardContent className="p-5 md:p-6">
+            <p className="text-xs text-muted-foreground mb-5 font-semibold">
               Berikut kemungkinan penyakit lain yang memiliki kecocokan gejala:
             </p>
             <div className="space-y-4">
               {result.alternative_diagnoses.map((alt) => {
                 const pct = Math.round(alt.confidence * 100);
-                const barColor = pct >= 60 ? "#16A34A" : pct >= 40 ? "#FACC15" : "#F97316";
+                const barGradient = pct >= 60 ? "from-emerald-500 to-green-600" : pct >= 40 ? "from-amber-500 to-yellow-600" : "from-red-500 to-rose-600";
                 return (
-                  <div key={alt.disease.id} className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="font-semibold text-foreground">
+                  <div key={alt.disease.id} className="space-y-2 animate-fade-in-up">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-bold text-foreground">
                         {alt.disease.name}
-                        <span className="text-xs text-muted-foreground font-mono ml-1.5">
-                          ({alt.disease.code})
+                        <span className="text-[10px] text-muted-foreground font-mono ml-1.5 px-1.5 py-0.5 rounded bg-zinc-50 border border-zinc-200/60">
+                          {alt.disease.code}
                         </span>
                       </span>
-                      <span className="font-bold text-primary">{pct}%</span>
+                      <span className="font-extrabold text-emerald-700">{pct}%</span>
                     </div>
-                    <div className="h-2 w-full bg-muted rounded-full overflow-hidden border border-border">
+                    <div className="h-2 w-full bg-zinc-100 rounded-full overflow-hidden border border-zinc-200/50">
                       <div
-                        className="h-full rounded-full transition-all duration-700 ease-out"
+                        className={`h-full rounded-full bg-gradient-to-r ${barGradient} transition-all duration-1000 ease-out`}
                         style={{
                           width: `${pct}%`,
-                          backgroundColor: barColor,
                         }}
                       />
                     </div>
