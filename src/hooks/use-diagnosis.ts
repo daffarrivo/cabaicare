@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { DiagnosisInput, DiagnosisResult } from "@/types";
+import { DiagnosisInput, DiagnosisResult, Symptom, Disease } from "@/types";
 import { runDiagnosis } from "@/lib/inference-engine";
+import { diseaseSymptoms, getDiseaseById, getSymptomById } from "@/lib/mock-data";
 
 interface DiagnosisState {
   step: number;
@@ -81,7 +82,30 @@ export function useDiagnosis() {
       symptoms: state.selectedSymptoms,
     };
 
-    const result = runDiagnosis(input);
+    const mappings = diseaseSymptoms.map((ds) => ({
+      disease_id: ds.disease_id,
+      symptom_id: ds.symptom_id,
+      phase_id: ds.phase_id,
+      cf_expert: ds.cf_expert,
+    }));
+
+    const diseaseMap: Record<string, Disease> = {};
+    const symptomMap: Record<string, Symptom> = {};
+
+    for (const ds of diseaseSymptoms) {
+      const d = getDiseaseById(ds.disease_id);
+      const s = getSymptomById(ds.symptom_id);
+      if (d) diseaseMap[d.id] = d;
+      if (s) symptomMap[s.id] = s;
+    }
+
+    const result = runDiagnosis(
+      state.phaseId,
+      state.selectedSymptoms,
+      mappings,
+      diseaseMap,
+      symptomMap
+    );
 
     if (!result) {
       setState((prev) => ({
@@ -92,9 +116,15 @@ export function useDiagnosis() {
       return;
     }
 
+    const diagnosisResult: DiagnosisResult = {
+      id: `dx-${Date.now()}`,
+      ...result,
+      created_at: new Date().toISOString(),
+    };
+
     setState((prev) => ({
       ...prev,
-      result,
+      result: diagnosisResult,
       isLoading: false,
       step: 4,
     }));
@@ -104,7 +134,7 @@ export function useDiagnosis() {
       const history = JSON.parse(
         localStorage.getItem(DIAGNOSIS_STORAGE_KEY) ?? "[]"
       );
-      history.unshift(result);
+      history.unshift(diagnosisResult);
       localStorage.setItem(
         DIAGNOSIS_STORAGE_KEY,
         JSON.stringify(history.slice(0, 50))
