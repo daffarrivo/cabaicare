@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String         @id @default(uuid()) @db.Uuid
+  name         String
+  email        String         @unique
+  passwordHash String         @map("password_hash")
+  role         String         @default("user")
+  createdAt    DateTime       @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt    DateTime       @updatedAt @map("updated_at") @db.Timestamptz
+  consultations Consultation[]
+  auditLogs    AuditLog[]
+
+  @@map("users")
+}
+
+model GrowthPhase {
+  id              String            @id
+  code            String            @unique
+  name            String
+  description     String?
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz
+  diseaseSymptoms DiseaseSymptom[]
+
+  @@map("growth_phases")
+}
+
+model Symptom {
+  id              String            @id
+  code            String            @unique
+  name            String
+  description     String?
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime          @updatedAt @map("updated_at") @db.Timestamptz
+  diseaseSymptoms DiseaseSymptom[]
+
+  @@map("symptoms")
+}
+
+model Disease {
+  id              String            @id
+  code            String            @unique
+  name            String
+  description     String
+  cause           String
+  solution        String
+  prevention      String
+  imageUrl        String?           @map("image_url")
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime          @updatedAt @map("updated_at") @db.Timestamptz
+  diseaseSymptoms DiseaseSymptom[]
+
+  @@map("diseases")
+}
+
+model DiseaseSymptom {
+  id         String       @id @default(uuid()) @db.Uuid
+  diseaseId  String       @map("disease_id")
+  symptomId  String       @map("symptom_id")
+  phaseId    String       @map("phase_id")
+  cfExpert   Decimal      @map("cf_expert") @db.Decimal(3, 2)
+  createdAt  DateTime     @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt  DateTime     @updatedAt @map("updated_at") @db.Timestamptz
+  disease    Disease      @relation(fields: [diseaseId], references: [id], onDelete: Cascade)
+  symptom    Symptom      @relation(fields: [symptomId], references: [id], onDelete: Cascade)
+  phase      GrowthPhase  @relation(fields: [phaseId], references: [id], onDelete: Cascade)
+
+  @@unique([diseaseId, symptomId, phaseId])
+  @@index([diseaseId])
+  @@index([symptomId])
+  @@index([phaseId])
+  @@map("disease_symptoms")
+}
+
+model Consultation {
+  id            String    @id @default(uuid()) @db.Uuid
+  userId        String?   @map("user_id") @db.Uuid
+  phaseId       String    @map("phase_id")
+  inputSymptoms Json      @map("input_symptoms") @db.JsonB
+  resultJson    Json      @map("result_json") @db.JsonB
+  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  user          User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@map("consultations")
+}
+
+model AuditLog {
+  id         String   @id @default(uuid()) @db.Uuid
+  userId     String?  @map("user_id") @db.Uuid
+  action     String
+  entityType String   @map("entity_type")
+  entityId   String?  @map("entity_id")
+  details    Json?    @db.JsonB
+  ipAddress  String?  @map("ip_address")
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([entityType])
+  @@map("audit_logs")
+}

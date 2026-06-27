@@ -1,24 +1,34 @@
-import { DiagnosisInput, DiagnosisResult, Disease, Symptom } from "@/types";
-import { diseaseSymptoms, getDiseaseById, getSymptomById } from "./mock-data";
+import { Disease, Symptom } from "@/types";
+
+export interface DiseaseSymptomMapping {
+  disease_id: string;
+  symptom_id: string;
+  phase_id: string;
+  cf_expert: number;
+}
 
 export interface CandidateDisease {
   disease_id: string;
   matched_symptom_ids: string[];
 }
 
-export function forwardChaining(input: DiagnosisInput): CandidateDisease[] {
+export function forwardChaining(
+  phaseId: string,
+  userSymptoms: { symptom_id: string; user_cf: number }[],
+  allMappings: DiseaseSymptomMapping[]
+): CandidateDisease[] {
   const candidates: Map<string, Set<string>> = new Map();
 
-  for (const { symptom_id } of input.symptoms) {
-    const relevant = diseaseSymptoms.filter(
-      (ds) => ds.symptom_id === symptom_id && ds.phase_id === input.phase_id
+  for (const { symptom_id } of userSymptoms) {
+    const relevant = allMappings.filter(
+      (m) => m.symptom_id === symptom_id && m.phase_id === phaseId
     );
 
-    for (const ds of relevant) {
-      if (!candidates.has(ds.disease_id)) {
-        candidates.set(ds.disease_id, new Set());
+    for (const mapping of relevant) {
+      if (!candidates.has(mapping.disease_id)) {
+        candidates.set(mapping.disease_id, new Set());
       }
-      candidates.get(ds.disease_id)!.add(ds.symptom_id);
+      candidates.get(mapping.disease_id)!.add(mapping.symptom_id);
     }
   }
 
@@ -28,14 +38,26 @@ export function forwardChaining(input: DiagnosisInput): CandidateDisease[] {
   }));
 }
 
+export function getCfExpert(
+  diseaseId: string,
+  symptomId: string,
+  allMappings: DiseaseSymptomMapping[]
+): number {
+  const mapping = allMappings.find(
+    (m) => m.disease_id === diseaseId && m.symptom_id === symptomId
+  );
+  return mapping?.cf_expert ?? 0;
+}
+
 export function calculateCF(
   diseaseId: string,
-  symptoms: { symptom_id: string; user_cf: number }[]
+  symptoms: { symptom_id: string; user_cf: number }[],
+  allMappings: DiseaseSymptomMapping[]
 ): number {
   let cfCombine = 0;
 
   for (const { symptom_id, user_cf } of symptoms) {
-    const cfPakar = getCfExpert(diseaseId, symptom_id);
+    const cfPakar = getCfExpert(diseaseId, symptom_id, allMappings);
     if (cfPakar === 0) continue;
 
     const cfNew = cfPakar * user_cf;
@@ -50,31 +72,38 @@ export function calculateCF(
   return Math.round(cfCombine * 100) / 100;
 }
 
-export function getCfExpert(diseaseId: string, symptomId: string): number {
-  const ds = diseaseSymptoms.find(
-    (d) => d.disease_id === diseaseId && d.symptom_id === symptomId
-  );
-  return ds?.cf_expert ?? 0;
-}
-
-export function runDiagnosis(input: DiagnosisInput): DiagnosisResult | null {
-  const candidates = forwardChaining(input);
-
+export function runDiagnosis(
+  phaseId: string,
+  userSymptoms: { symptom_id: string; user_cf: number }[],
+  allMappings: DiseaseSymptomMapping[],
+  diseases: Record<string, Disease>,
+  symptoms: Record<string, Symptom>
+) {
+  const candidates = forwardChaining(phaseId, userSymptoms, allMappings);
   if (candidates.length === 0) return null;
 
-  const results: { disease: Disease; confidence: number; matchedSymptoms: Symptom[] }[] = [];
+  const results: {
+    disease: Disease;
+    confidence: number;
+    matchedSymptoms: Symptom[];
+  }[] = [];
 
   for (const candidate of candidates) {
-    const disease = getDiseaseById(candidate.disease_id);
+    const disease = diseases[candidate.disease_id];
     if (!disease) continue;
 
-    const relevantSymptoms = input.symptoms.filter((s) =>
+    const relevantSymptoms = userSymptoms.filter((s) =>
       candidate.matched_symptom_ids.includes(s.symptom_id)
     );
 
-    const confidence = calculateCF(candidate.disease_id, relevantSymptoms);
+    const confidence = calculateCF(
+      candidate.disease_id,
+      relevantSymptoms,
+      allMappings
+    );
+
     const matchedSymptoms = candidate.matched_symptom_ids
-      .map((id) => getSymptomById(id))
+      .map((id) => symptoms[id])
       .filter((s): s is Symptom => s !== undefined);
 
     results.push({ disease, confidence, matchedSymptoms });
@@ -89,12 +118,10 @@ export function runDiagnosis(input: DiagnosisInput): DiagnosisResult | null {
   }));
 
   return {
-    id: `dx-${Date.now()}`,
     disease: top.disease,
     confidence: top.confidence,
     matched_symptoms: top.matchedSymptoms,
     alternative_diagnoses: alternatives,
-    created_at: new Date().toISOString(),
   };
 }
 
@@ -102,7 +129,10 @@ export function formatConfidence(cf: number): string {
   return `${Math.round(cf * 100)}%`;
 }
 
-export function getConfidenceLevel(cf: number): { label: string; color: string } {
+export function getConfidenceLevel(cf: number): {
+  label: string;
+  color: string;
+} {
   if (cf >= 0.8) return { label: "Sangat Tinggi", color: "text-green-600" };
   if (cf >= 0.6) return { label: "Tinggi", color: "text-green-500" };
   if (cf >= 0.4) return { label: "Sedang", color: "text-yellow-500" };
