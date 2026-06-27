@@ -132,8 +132,8 @@ export async function runDiagnosis(
     data: {
       userId,
       phaseId: input.phase_id,
-      inputSymptoms: input.symptoms,
-      resultJson: result,
+      inputSymptoms: input.symptoms as any,
+      resultJson: result as any,
     },
   });
 

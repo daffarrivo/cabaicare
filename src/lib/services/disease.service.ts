@@ -99,17 +99,6 @@ export async function deleteDisease(id: string) {
     );
   }
 
-  const consultationCount = await prisma.consultation.count({
-    where: {
-      resultJson: { path: ["disease", "id"], equals: id },
-    },
-  });
-  if (consultationCount > 0) {
-    throw new Error(
-      "Penyakit tidak dapat dihapus karena masih digunakan dalam riwayat konsultasi"
-    );
-  }
-
   await prisma.disease.delete({ where: { id } });
   return true;
 }
