@@ -356,10 +356,7 @@ Knowledge Base direpresentasikan dalam beberapa entitas utama:
 - phases
 - diseases
 - symptoms
-- •
-
-disease_symptoms rules
-
+- • disease_symptoms rules
 - diagnoses
 
 Relasi utama:

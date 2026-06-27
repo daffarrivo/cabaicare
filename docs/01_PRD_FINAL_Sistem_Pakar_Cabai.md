@@ -22,9 +22,7 @@ Sistem Pakar Diagnosa Penyakit Tanaman Cabai Menggunakan Metode Forward Chaining
 
 Project Description
 
-Aplikasi web yang membantu pengguna melakukan identifikasi penyakit tanaman cabai berdasarkan fase pertumbuhan dan gejala yang dipilih. Sistem menggunakan Forward Chaining sebagai mesin inferensi
-
-awal untuk mencocokkan rule dan melacak kandidat penyakit, kemudian Certainty Factor untuk menghitung persentase keyakinan diagnosis.
+Aplikasi web yang membantu pengguna melakukan identifikasi penyakit tanaman cabai berdasarkan fase pertumbuhan dan gejala yang dipilih. Sistem menggunakan Forward Chaining sebagai mesin inferensi awal untuk mencocokkan rule dan melacak kandidat penyakit, kemudian Certainty Factor untuk menghitung persentase keyakinan diagnosis.
 
 Sistem dirancang agar pengetahuan pakar dapat dikelola secara dinamis melalui dashboard admin tanpa perlu melakukan perubahan kode ataupun deploy ulang aplikasi.
 
@@ -34,9 +32,7 @@ Tanaman cabai merupakan salah satu komoditas pertanian yang rentan terhadap berb
 
 Proses identifikasi penyakit sering kali membutuhkan bantuan pakar pertanian yang tidak selalu tersedia.
 
-Sistem pakar berbasis web dapat membantu pengguna memperoleh diagnosis awal secara cepat dengan memanfaatkan basis pengetahuan yang berasal dari pakar. Metode Forward Chaining digunakan untuk
-
-penalaran berbasis aturan dalam menemukan kandidat penyakit, dan Certainty Factor untuk menghitung tingkat keyakinan diagnosis.
+Sistem pakar berbasis web dapat membantu pengguna memperoleh diagnosis awal secara cepat dengan memanfaatkan basis pengetahuan yang berasal dari pakar. Metode Forward Chaining digunakan untuk penalaran berbasis aturan dalam menemukan kandidat penyakit, dan Certainty Factor untuk menghitung tingkat keyakinan diagnosis.
 
 3. Objectives
 
@@ -452,13 +448,9 @@ Next.js API Routes / pg Pool
 
 12. Database Design (High Level)
 
-users symptoms
+users symptoms phases
 
-phases
-
-Field id
-
-email role
+Field id email role
 
 Type
 
@@ -470,9 +462,7 @@ String created_at
 
 Timestamp
 
-Field id
-
-code name
+Field id code name
 
 Type
 
@@ -488,9 +478,7 @@ Timestamp updated_at
 
 Timestamp
 
-Field id
-
-code name
+Field id code name
 
 Type
 
@@ -504,9 +492,7 @@ Text created_at
 
 Timestamp diseases
 
-Field id
-
-code name
+Field id code name
 
 Type
 
@@ -522,9 +508,7 @@ Text created_at
 
 Timestamp updated_at
 
-Timestamp disease_symptoms
-
-consultations
+Timestamp disease_symptoms consultations
 
 Field id
 

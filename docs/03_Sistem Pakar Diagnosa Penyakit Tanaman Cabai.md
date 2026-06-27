@@ -100,9 +100,9 @@ Diagnosis Result
 
 Frontend
 
-- Next.js 15 App Router
+- Next.js 16 App Router
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS v4
 - Shadcn UI
 - React Hook Form
 - Zod Validation
@@ -399,45 +399,7 @@ Rules
   │
   └── Rule_Details
 
-13. Database Tables users
-
-id UUID PK name VARCHAR
-
-email VARCHAR role VARCHAR
-
-gejala id UUID PK
-
-kode_gejala VARCHAR nama_gejala TEXT
-
-phases id UUID PK
-
-kode_fase VARCHAR nama_fase VARCHAR
-
-deskripsi TEXT penyakit
-
-id UUID PK kode_penyakit VARCHAR
-
-nama_penyakit VARCHAR deskripsi TEXT
-solusi TEXT pencegahan TEXT
-
-rules id UUID PK
-
-penyakit_id UUID rule_details
-
-id UUID PK rule_id UUID
-gejala_id UUID certainty_factor
-
-id UUID PK penyakit_id UUID
-
-gejala_id UUID mb FLOAT
-
-md FLOAT cf FLOAT
-
-diagnosa id UUID PK
-
-user_id UUID NULLABLE hasil JSONB
-
-created_at TIMESTAMP
+13. Database Tables users id UUID PK name VARCHAR email VARCHAR role VARCHAR gejala id UUID PK kode_gejala VARCHAR nama_gejala TEXT phases id UUID PK kode_fase VARCHAR nama_fase VARCHAR deskripsi TEXT penyakit id UUID PK kode_penyakit VARCHAR nama_penyakit VARCHAR deskripsi TEXT solusi TEXT pencegahan TEXT rules id UUID PK penyakit_id UUID rule_details id UUID PK rule_id UUID gejala_id UUID certainty_factor id UUID PK penyakit_id UUID gejala_id UUID mb FLOAT md FLOAT cf FLOAT diagnosa id UUID PK user_id UUID NULLABLE hasil JSONB created_at TIMESTAMP
 
 14. API Architecture
 

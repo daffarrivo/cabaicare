@@ -160,9 +160,7 @@ Feature feature/*
 
 Contoh:
 
-feature/diagnosis feature/admin-dashboard
-
-feature/rules-management
+feature/diagnosis feature/admin-dashboard feature/rules-management
 
 6. CI/CD Workflow
 
@@ -489,5 +487,4 @@ Validation:
 
 20. Conclusion
 
-Arsitektur deployment menggunakan Next.js Fullstack dan PostgreSQL memungkinkan sistem pakar berjalan dengan biaya operasional rendah, proses deployment sederhana, maintenance mudah, serta tetap mampu
-mendukung proses inferensi Forward Chaining dan Certainty Factor secara efisien pada lingkungan produksi.
+Arsitektur deployment menggunakan Next.js Fullstack dan PostgreSQL memungkinkan sistem pakar berjalan dengan biaya operasional rendah, proses deployment sederhana, maintenance mudah, serta tetap mampu mendukung proses inferensi Forward Chaining dan Certainty Factor secara efisien pada lingkungan produksi.

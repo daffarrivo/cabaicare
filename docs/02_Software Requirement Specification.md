@@ -268,52 +268,31 @@ UI tidak boleh rusak pada seluruh ukuran layar.
 - id
 - name
 - email
-- role
-
-gejala
-
+- role gejala
 - id
 - kode_gejala
-- nama_gejala
-
-phases
-
+- nama_gejala phases
 - id
 - kode_fase
 - nama_fase
-- deskripsi
-
-penyakit
-
+- deskripsi penyakit
 - id
 - kode_penyakit
 - nama_penyakit
 - deskripsi
 - solusi
-- pencegahan
-
-rules
-
+- pencegahan rules
 - id
-- penyakit_id
-
-rule_details
-
+- penyakit_id rule_details
 - id
 - rule_id
-- gejala_id
-
-certainty_factor
-
+- gejala_id certainty_factor
 - id
 - penyakit_id
 - gejala_id
 - mb
 - md
-- cf
-
-diagnosa
-
+- cf diagnosa
 - id
 - user_id
 - hasil
