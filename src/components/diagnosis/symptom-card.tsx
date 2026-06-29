@@ -26,10 +26,10 @@ export function SymptomCard({
 }: SymptomCardProps) {
   return (
     <Card
-      className={`cursor-pointer border-2 transition-all duration-300 rounded-2xl select-none overflow-hidden hover:scale-[1.01] hover:shadow-lg ${
+      className={`cursor-pointer border-2 transition-all duration-300 rounded-2xl select-none overflow-hidden ${
         isSelected
           ? "border-emerald-500 bg-emerald-500/[0.02] shadow-[0_10px_20px_-10px_rgba(16,185,129,0.06)]"
-          : "border-zinc-200/80 bg-white shadow-xs hover:border-emerald-500/30 hover:shadow-sm"
+          : "border-zinc-200/80 bg-white shadow-xs hover:border-emerald-400 hover:shadow-md"
       }`}
       onClick={() => onToggle(id)}
     >
