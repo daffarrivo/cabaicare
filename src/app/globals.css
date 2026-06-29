@@ -189,23 +189,3 @@
 @utility shadow-glow-emerald {
   box-shadow: 0 4px 20px rgba(16, 185, 129, 0.18), 0 10px 40px -10px rgba(16, 185, 129, 0.25);
 }
-
-@media print {
-  body {
-    background: #ffffff !important;
-    color: #000000 !important;
-  }
-  header, footer, button, .no-print {
-    display: none !important;
-  }
-  .print-card {
-    background: #ffffff !important;
-    border: 1px solid #cccccc !important;
-    color: #000000 !important;
-    box-shadow: none !important;
-  }
-  * {
-    color: #000000 !important;
-    border-color: #dddddd !important;
-  }
-}

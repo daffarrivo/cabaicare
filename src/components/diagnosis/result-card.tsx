@@ -1,10 +1,9 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
 import { DiagnosisResult, Symptom } from "@/types";
 import { getConfidenceLevel } from "@/lib/inference-engine";
-import { AlertTriangle, CheckCircle2, FlaskConical, Shield, Printer, Check } from "lucide-react";
+import { AlertTriangle, CheckCircle2, FlaskConical, Shield, Check } from "lucide-react";
 
 interface ResultCardProps {
   result: DiagnosisResult;
@@ -35,7 +34,7 @@ export function ResultCard({ result }: ResultCardProps) {
   const strokeDashoffset = circumference - (confidencePct / 100) * circumference;
 
   return (
-    <div className="space-y-6 print-card rounded-3xl animate-fade-in-up">
+    <div className="space-y-6 rounded-3xl animate-fade-in-up">
       {/* Main Diagnosis Card */}
       <Card className="border border-zinc-200/60 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04),0_1px_3px_rgba(0,0,0,0.02)] rounded-3xl relative overflow-hidden group">
         <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/[0.03] rounded-full blur-[80px] pointer-events-none" />
@@ -103,15 +102,6 @@ export function ResultCard({ result }: ResultCardProps) {
               Hasil diagnosis berdasarkan perhitungan Certainty Factor dari gejala yang dilaporkan oleh pengguna.
             </p>
           </div>
-
-          <Button
-            onClick={() => window.print()}
-            variant="outline"
-            className="no-print border-zinc-200 bg-white hover:bg-muted text-xs font-bold uppercase tracking-wider rounded-xl px-5 py-2.5 flex items-center gap-2 transition-all duration-300"
-          >
-            <Printer className="h-3.5 w-3.5 text-emerald-600" />
-            Cetak / Simpan PDF
-          </Button>
         </CardContent>
       </Card>
 
