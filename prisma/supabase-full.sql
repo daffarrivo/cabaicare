@@ -207,9 +207,9 @@ INSERT INTO public.diseases VALUES ('p11', 'P11', 'Busuk Basah Buah', 'Penyakit 
 -- Data for Name: growth_phases; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.growth_phases VALUES ('f01', 'F01', 'Pembibitan', 'Sejak penyemaian hingga bibit siap tanam', '2026-06-27 13:25:43.47+07');
-INSERT INTO public.growth_phases VALUES ('f02', 'F02', 'Vegetatif', 'Pertumbuhan daun, batang, dan akar', '2026-06-27 13:25:43.558+07');
-INSERT INTO public.growth_phases VALUES ('f03', 'F03', 'Generatif', 'Pembungaan hingga pembentukan buah', '2026-06-27 13:25:43.56+07');
+INSERT INTO public.growth_phases VALUES ('f01', 'F01', 'Fase Pembibitan', 'Sejak penyemaian hingga bibit siap tanam', '2026-06-27 13:25:43.47+07');
+INSERT INTO public.growth_phases VALUES ('f02', 'F02', 'Fase Vegetatif', 'Pertumbuhan daun, batang, dan akar', '2026-06-27 13:25:43.558+07');
+INSERT INTO public.growth_phases VALUES ('f03', 'F03', 'Fase Generatif', 'Pembungaan hingga pembentukan buah', '2026-06-27 13:25:43.56+07');
 
 
 --
@@ -261,8 +261,8 @@ INSERT INTO public.disease_symptoms VALUES ('4d115cab-35fe-45dd-aae4-fdeed09a939
 INSERT INTO public.disease_symptoms VALUES ('d691990c-cf5f-4613-af1c-b43303eaf3c6', 'p09', 'g31', 'f01', 0.90, '2026-06-27 13:25:43.657+07', '2026-06-27 13:25:43.657+07');
 INSERT INTO public.disease_symptoms VALUES ('cd4200ad-ecc4-425d-bead-05c3250b361a', 'p06', 'g20', 'f01', 0.40, '2026-06-27 13:25:43.66+07', '2026-06-27 13:25:43.66+07');
 INSERT INTO public.disease_symptoms VALUES ('f67cd0c0-850f-40c3-9a9f-6c3c5e422292', 'p06', 'g20', 'f02', 0.40, '2026-06-27 13:25:43.662+07', '2026-06-27 13:25:43.662+07');
-INSERT INTO public.disease_symptoms VALUES ('025d703f-0525-44ae-aac8-3a0f9ffa781f', 'p06', 'g24', 'f01', 0.75, '2026-06-27 13:25:43.665+07', '2026-06-27 13:25:43.665+07');
-INSERT INTO public.disease_symptoms VALUES ('1a53f203-cac1-43f0-b6d0-773d26296e27', 'p06', 'g24', 'f02', 0.75, '2026-06-27 13:25:43.667+07', '2026-06-27 13:25:43.667+07');
+INSERT INTO public.disease_symptoms VALUES ('025d703f-0525-44ae-aac8-3a0f9ffa781f', 'p06', 'g24', 'f01', 0.70, '2026-06-27 13:25:43.665+07', '2026-06-27 13:25:43.665+07');
+INSERT INTO public.disease_symptoms VALUES ('1a53f203-cac1-43f0-b6d0-773d26296e27', 'p06', 'g24', 'f02', 0.70, '2026-06-27 13:25:43.667+07', '2026-06-27 13:25:43.667+07');
 INSERT INTO public.disease_symptoms VALUES ('b7f34ffc-4217-48de-9a74-7f1136179169', 'p01', 'g01', 'f02', 0.40, '2026-06-27 13:25:43.669+07', '2026-06-27 13:25:43.669+07');
 INSERT INTO public.disease_symptoms VALUES ('271f73ab-b434-454c-8fc7-01691df2dc61', 'p01', 'g01', 'f03', 0.40, '2026-06-27 13:25:43.671+07', '2026-06-27 13:25:43.671+07');
 INSERT INTO public.disease_symptoms VALUES ('6a8aec25-613e-4f12-b589-7b4374d3da95', 'p01', 'g02', 'f02', 0.40, '2026-06-27 13:25:43.673+07', '2026-06-27 13:25:43.673+07');

@@ -34,9 +34,9 @@ export interface SeedRule {
 }
 
 export const seedPhases: SeedPhase[] = [
-  { id: "f01", code: "F01", name: "Pembibitan", description: "Sejak penyemaian hingga bibit siap tanam" },
-  { id: "f02", code: "F02", name: "Vegetatif", description: "Pertumbuhan daun, batang, dan akar" },
-  { id: "f03", code: "F03", name: "Generatif", description: "Pembungaan hingga pembentukan buah" },
+  { id: "f01", code: "F01", name: "Fase Pembibitan", description: "Sejak penyemaian hingga bibit siap tanam" },
+  { id: "f02", code: "F02", name: "Fase Vegetatif", description: "Pertumbuhan daun, batang, dan akar" },
+  { id: "f03", code: "F03", name: "Fase Generatif", description: "Pembungaan hingga pembentukan buah" },
 ];
 
 export const seedSymptoms: SeedSymptom[] = [
@@ -96,8 +96,8 @@ export const seedRules: SeedRule[] = [
   { id: "ds02", disease_id: "p09", symptom_id: "g31", phase_id: "f01", cf_expert: 0.9 },
   { id: "ds03", disease_id: "p06", symptom_id: "g20", phase_id: "f01", cf_expert: 0.4 },
   { id: "ds04", disease_id: "p06", symptom_id: "g20", phase_id: "f02", cf_expert: 0.4 },
-  { id: "ds05", disease_id: "p06", symptom_id: "g24", phase_id: "f01", cf_expert: 0.75 },
-  { id: "ds06", disease_id: "p06", symptom_id: "g24", phase_id: "f02", cf_expert: 0.75 },
+  { id: "ds05", disease_id: "p06", symptom_id: "g24", phase_id: "f01", cf_expert: 0.7 },
+  { id: "ds06", disease_id: "p06", symptom_id: "g24", phase_id: "f02", cf_expert: 0.7 },
   { id: "ds07", disease_id: "p01", symptom_id: "g01", phase_id: "f02", cf_expert: 0.4 },
   { id: "ds08", disease_id: "p01", symptom_id: "g01", phase_id: "f03", cf_expert: 0.4 },
   { id: "ds09", disease_id: "p01", symptom_id: "g02", phase_id: "f02", cf_expert: 0.4 },

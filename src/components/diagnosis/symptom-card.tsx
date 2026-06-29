@@ -1,6 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
+import { Slider } from "@/components/ui/slider";
 import { Check } from "lucide-react";
 
 interface SymptomCardProps {
@@ -25,7 +26,7 @@ export function SymptomCard({
 }: SymptomCardProps) {
   return (
     <Card
-      className={`cursor-pointer border-2 transition-all duration-300 rounded-2xl select-none overflow-hidden hover:-translate-y-1 ${
+      className={`cursor-pointer border-2 transition-all duration-300 rounded-2xl select-none overflow-hidden hover:-translate-y-1 hover:z-10 hover:relative ${
         isSelected
           ? "border-emerald-500 bg-emerald-500/[0.02] shadow-[0_10px_20px_-10px_rgba(16,185,129,0.06)]"
           : "border-zinc-200/80 bg-white shadow-xs hover:border-emerald-500/30 hover:shadow-sm"
@@ -61,31 +62,18 @@ export function SymptomCard({
             <p className="text-[9px] font-extrabold text-zinc-500 uppercase tracking-widest">
               Tingkat Keyakinan:
             </p>
-            <div className="grid grid-cols-5 gap-1 p-1 bg-zinc-100/80 border border-zinc-200/40 rounded-xl w-full select-none">
-              {[
-                { val: 0.2, label: "20%", desc: "Tidak Tahu" },
-                { val: 0.4, label: "40%", desc: "Sedikit" },
-                { val: 0.6, label: "60%", desc: "Cukup" },
-                { val: 0.8, label: "80%", desc: "Yakin" },
-                { val: 1.0, label: "100%", desc: "Pasti" },
-              ].map((level) => {
-                const isActive = Math.abs(userCf - level.val) < 0.01;
-                return (
-                  <button
-                    key={level.val}
-                    type="button"
-                    onClick={() => onCFChange(id, level.val)}
-                    className={`py-2 text-[10px] font-extrabold rounded-lg transition-all duration-200 ${
-                      isActive
-                        ? "bg-white text-emerald-700 shadow-xs border border-zinc-200/30"
-                        : "text-muted-foreground/70 hover:text-foreground bg-transparent border-transparent"
-                    }`}
-                    title={level.desc}
-                  >
-                    {level.label}
-                  </button>
-                );
-              })}
+            <div className="flex items-center gap-3 w-full">
+              <Slider
+                value={[Math.round(userCf * 100)]}
+                onValueChange={(value) => onCFChange(id, (Array.isArray(value) ? value[0] : value) / 100)}
+                min={0}
+                max={100}
+                step={1}
+                className="flex-1 [&>[data-slot=slider-track]]:h-2 [&>[data-slot=slider-range]]:bg-emerald-500 [&>[data-slot=slider-thumb]]:size-4 [&>[data-slot=slider-thumb]]:border-emerald-500"
+              />
+              <span className="text-xs font-extrabold text-emerald-700 w-9 text-right tabular-nums">
+                {Math.round(userCf * 100)}%
+              </span>
             </div>
           </div>
         )}
