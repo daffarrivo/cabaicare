@@ -281,7 +281,7 @@ export default function DiagnosisPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[380px] overflow-y-auto pr-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[380px] overflow-y-auto py-1 pr-1">
                   {filteredSymptoms.map((symptom) => {
                     const isSelected = !!selectedSymptoms.find(
                       (s) => s.symptom_id === symptom.id
@@ -353,7 +353,7 @@ export default function DiagnosisPage() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-3 max-h-[420px] overflow-y-auto pr-1">
+                <div className="grid grid-cols-1 gap-3 max-h-[420px] overflow-y-auto py-1 pr-1">
                   {selectedSymptoms.map((symptom) => {
                     const symptomData = phaseSymptoms.find((s) => s.id === symptom.symptom_id);
                     if (!symptomData) return null;
