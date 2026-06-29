@@ -26,7 +26,7 @@ export function SymptomCard({
 }: SymptomCardProps) {
   return (
     <Card
-      className={`cursor-pointer border-2 transition-all duration-300 rounded-2xl select-none overflow-hidden hover:-translate-y-1 hover:z-10 hover:relative ${
+      className={`cursor-pointer border-2 transition-all duration-300 rounded-2xl select-none overflow-hidden relative z-0 hover:-translate-y-1 hover:z-20 ${
         isSelected
           ? "border-emerald-500 bg-emerald-500/[0.02] shadow-[0_10px_20px_-10px_rgba(16,185,129,0.06)]"
           : "border-zinc-200/80 bg-white shadow-xs hover:border-emerald-500/30 hover:shadow-sm"

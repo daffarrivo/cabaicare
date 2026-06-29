@@ -347,11 +347,10 @@ export default function DiagnosisPage() {
               <CardContent className="p-5 md:p-6 space-y-4">
                 <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-2xl p-4.5 flex items-start gap-3">
                   <Info className="h-4.5 w-4.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <p className="text-xs text-emerald-800 leading-relaxed font-semibold">
-                    Pilih <strong>&quot;Sangat Yakin&quot;</strong> jika gejala terlihat jelas pada tanaman.
-                    Pilih <strong>&quot;Tidak Tahu&quot;</strong> jika Anda ragu dengan gejala yang muncul.
-                    Nilai keyakinan akan dikalikan dengan bobot pakar untuk menghitung hasil akhir.
-                  </p>
+                    <p className="text-xs text-emerald-800 leading-relaxed font-semibold">
+                      Geser slider untuk menyesuaikan tingkat keyakinan Anda terhadap setiap gejala yang terpilih.
+                      Nilai keyakinan akan dikalikan dengan bobot pakar untuk menghitung hasil akhir diagnosis.
+                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 gap-3 max-h-[420px] overflow-y-auto pr-1">

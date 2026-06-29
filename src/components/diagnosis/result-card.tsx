@@ -169,7 +169,16 @@ export function ResultCard({ result }: ResultCardProps) {
             </div>
           </CardHeader>
           <CardContent className="p-5 md:p-6">
-            <p className="text-xs md:text-sm text-foreground/80 leading-relaxed font-semibold">{result.disease.solution}</p>
+            <ol className="space-y-2.5 list-none [counter-reset:step]">
+              {result.disease.solution.split(". ").filter(Boolean).map((step, i) => (
+                <li key={i} className="flex gap-3 text-xs md:text-sm text-foreground/80 leading-relaxed font-semibold [counter-increment:step]">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-[10px] font-extrabold text-emerald-700 mt-0.5">
+                    {i + 1}
+                  </span>
+                  <span className="pt-px">{step.trim()}</span>
+                </li>
+              ))}
+            </ol>
           </CardContent>
         </Card>
 
@@ -183,7 +192,16 @@ export function ResultCard({ result }: ResultCardProps) {
             </div>
           </CardHeader>
           <CardContent className="p-5 md:p-6">
-            <p className="text-xs md:text-sm text-foreground/80 leading-relaxed font-semibold">{result.disease.prevention}</p>
+            <ol className="space-y-2.5 list-none [counter-reset:step]">
+              {result.disease.prevention.split(". ").filter(Boolean).map((step, i) => (
+                <li key={i} className="flex gap-3 text-xs md:text-sm text-foreground/80 leading-relaxed font-semibold [counter-increment:step]">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-[10px] font-extrabold text-sky-700 mt-0.5">
+                    {i + 1}
+                  </span>
+                  <span className="pt-px">{step.trim()}</span>
+                </li>
+              ))}
+            </ol>
           </CardContent>
         </Card>
       </div>
