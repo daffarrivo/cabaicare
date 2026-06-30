@@ -160,31 +160,6 @@ export function ResultCard({ result }: ResultCardProps) {
         </CardContent>
       </Card>
 
-      {/* Gejala Teridentifikasi */}
-      <Card className="rounded-3xl border border-zinc-200/60 bg-white shadow-sm overflow-hidden">
-        <CardHeader className="pb-3 border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="h-4.5 w-4.5 text-emerald-600 animate-pulse" />
-            <h3 className="font-bold text-sm text-foreground uppercase tracking-widest">
-              Gejala Teridentifikasi
-            </h3>
-          </div>
-        </CardHeader>
-        <CardContent className="p-5 md:p-6">
-          <div className="flex flex-wrap gap-2 select-none">
-            {result.matched_symptoms.map((s: Symptom) => (
-              <Badge
-                key={s.id}
-                className="bg-emerald-500/[0.04] text-emerald-800 border border-emerald-500/20 text-[11px] font-semibold py-1.5 px-3 rounded-xl flex items-center gap-1.5"
-              >
-                <Check className="h-3 w-3 text-emerald-600 stroke-[3]" />
-                <span className="font-mono font-bold opacity-60">{s.code}</span>: {s.name}
-              </Badge>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
       {/* Solusi & Pencegahan */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Card className="border border-emerald-500/20 border-l-[4px] border-l-emerald-600 bg-emerald-500/[0.01] shadow-sm rounded-3xl overflow-hidden">
@@ -233,6 +208,31 @@ export function ResultCard({ result }: ResultCardProps) {
           </CardContent>
         </Card>
       </div>
+
+      {/* Gejala Teridentifikasi */}
+      <Card className="rounded-3xl border border-zinc-200/60 bg-white shadow-sm overflow-hidden">
+        <CardHeader className="pb-3 border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
+          <div className="flex items-center gap-2">
+            <CheckCircle2 className="h-4.5 w-4.5 text-emerald-600 animate-pulse" />
+            <h3 className="font-bold text-sm text-foreground uppercase tracking-widest">
+              Gejala Teridentifikasi
+            </h3>
+          </div>
+        </CardHeader>
+        <CardContent className="p-5 md:p-6">
+          <div className="flex flex-wrap gap-2 select-none">
+            {result.matched_symptoms.map((s: Symptom) => (
+              <Badge
+                key={s.id}
+                className="bg-emerald-500/[0.04] text-emerald-800 border border-emerald-500/20 text-[11px] font-semibold py-1.5 px-3 rounded-xl flex items-center gap-1.5"
+              >
+                <Check className="h-3 w-3 text-emerald-600 stroke-[3]" />
+                <span className="font-mono font-bold opacity-60">{s.code}</span>: {s.name}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
