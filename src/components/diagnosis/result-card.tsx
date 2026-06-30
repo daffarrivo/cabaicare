@@ -138,9 +138,9 @@ export function ResultCard({ result }: ResultCardProps) {
         <CardHeader className="pb-3 border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
           <div className="flex items-center gap-2">
             <FlaskConical className="h-4.5 w-4.5 text-emerald-600" />
-            <h3 className="font-bold text-sm text-foreground uppercase tracking-widest">
-              Deskripsi & Penyebab
-            </h3>
+              <h3 className="font-bold text-sm text-foreground uppercase tracking-widest">
+                Deskripsi & Penyebab — {result.disease.name}
+              </h3>
           </div>
         </CardHeader>
         <CardContent className="p-5 md:p-6 space-y-4">
