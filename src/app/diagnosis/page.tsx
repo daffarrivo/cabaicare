@@ -196,11 +196,11 @@ export default function DiagnosisPage() {
                         )}
                         <RadioGroupItem value={phase.id} id={phase.id} className="sr-only" />
                         {(phase.id === "f01" ? (
-                          <Image src="/phase-seedling.png" alt="Fase Pembibitan" width={36} height={36} className="object-contain mb-3 transition-transform group-hover:scale-105" />
+                          <Image src="/phase-seedling.png" alt="Fase Pembibitan" width={56} height={56} className="object-contain mb-3 transition-transform group-hover:scale-105" />
                         ) : phase.id === "f02" ? (
-                          <Image src="/phase-vegetative.png" alt="Fase Vegetatif" width={36} height={36} className="object-contain mb-3 transition-transform group-hover:scale-105" />
+                          <Image src="/phase-vegetative.png" alt="Fase Vegetatif" width={56} height={56} className="object-contain mb-3 transition-transform group-hover:scale-105" />
                         ) : (
-                          <Image src="/phase-generative.png" alt="Fase Generatif" width={36} height={36} className="object-contain mb-3 transition-transform group-hover:scale-105" />
+                          <Image src="/phase-generative.png" alt="Fase Generatif" width={56} height={56} className="object-contain mb-3 transition-transform group-hover:scale-105" />
                         ))}
                         <p className="font-extrabold text-sm text-foreground mb-1 group-hover:text-emerald-700 transition-colors">{phase.name}</p>
                         <Badge className="bg-muted text-muted-foreground border border-border text-[9px] font-bold py-0.5 px-1.5 uppercase">
