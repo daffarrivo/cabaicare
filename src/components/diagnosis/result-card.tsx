@@ -139,7 +139,7 @@ export function ResultCard({ result }: ResultCardProps) {
           <div className="flex items-center gap-2">
             <FlaskConical className="h-4.5 w-4.5 text-emerald-600" />
               <h3 className="font-bold text-sm text-foreground uppercase tracking-widest">
-                Deskripsi & Penyebab — {result.disease.name}
+                Deskripsi & Penyebab {result.disease.name}
               </h3>
           </div>
         </CardHeader>
