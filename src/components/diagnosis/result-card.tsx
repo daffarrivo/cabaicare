@@ -153,7 +153,7 @@ export function ResultCard({ result }: ResultCardProps) {
           <Separator className="bg-zinc-100" />
           <div className="space-y-1">
             <span className="text-[10px] uppercase font-extrabold text-zinc-500 tracking-wider">
-              Faktor Penyebab
+              Penyebab
             </span>
             <p className="text-xs md:text-sm text-foreground/80 leading-relaxed font-semibold">{result.disease.cause}</p>
           </div>
