@@ -2,15 +2,13 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { DiagnosisResult, Symptom } from "@/types";
-import { getConfidenceLevel } from "@/lib/inference-engine";
-import { AlertTriangle, CheckCircle2, FlaskConical, Info, Shield, Check } from "lucide-react";
+import { AlertTriangle, CheckCircle2, FlaskConical, Shield, Check } from "lucide-react";
 
 interface ResultCardProps {
   result: DiagnosisResult;
 }
 
 export function ResultCard({ result }: ResultCardProps) {
-  const level = getConfidenceLevel(result.confidence);
   const confidencePct = Math.round(result.confidence * 100);
 
   const radius = 54;
@@ -84,25 +82,6 @@ export function ResultCard({ result }: ResultCardProps) {
               <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest mt-0.5">
                 CF Score
               </span>
-            </div>
-          </div>
-
-          <div className="text-center space-y-2 max-w-sm">
-            <Badge
-              className="text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-md"
-              style={{
-                backgroundColor: getTrackColor(confidencePct),
-                color: strokeColor,
-                border: `1px solid ${strokeColor}40`,
-              }}
-            >
-              {level.label}
-            </Badge>
-            <div className="flex items-start gap-2 text-left bg-zinc-50/80 border border-zinc-200/60 rounded-xl px-3 py-2.5">
-              <Info className="h-3.5 w-3.5 text-muted-foreground shrink-0 mt-0.5" />
-              <p className="text-[11px] text-muted-foreground leading-relaxed font-semibold">
-                Tingkat keyakinan dihitung menggunakan metode <span className="text-foreground font-extrabold">Certainty Factor (CF)</span>, yang menggabungkan bobot pengetahuan pakar dengan tingkat keyakinan Anda terhadap setiap gejala.
-              </p>
             </div>
           </div>
         </CardContent>
