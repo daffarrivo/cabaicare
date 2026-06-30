@@ -82,8 +82,8 @@ export default function HomePage() {
                       href="/diagnosis?phase=f01"
                       className="flex flex-col items-center text-center p-4 rounded-2xl border border-zinc-200/80 bg-white/50 backdrop-blur-sm hover:bg-emerald-500/[0.03] hover:border-emerald-500 hover:shadow-glow-emerald hover:-translate-y-1 active:scale-95 transition-all duration-300 group"
                     >
-                      <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                        <Sprout className="h-4.5 w-4.5 text-emerald-600" />
+                      <div className="w-12 h-12 rounded-xl bg-white border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 overflow-hidden">
+                        <Image src="/phase-seedling.png" alt="Fase Pembibitan" width={40} height={40} className="object-contain" />
                       </div>
                       <span className="text-[11px] font-extrabold text-foreground tracking-tight block">Pembibitan</span>
                       <span className="text-[9px] text-muted-foreground mt-1 block leading-none font-medium">Semaian & Bibit</span>
@@ -93,8 +93,8 @@ export default function HomePage() {
                       href="/diagnosis?phase=f02"
                       className="flex flex-col items-center text-center p-4 rounded-2xl border border-zinc-200/80 bg-white/50 backdrop-blur-sm hover:bg-emerald-500/[0.03] hover:border-emerald-500 hover:shadow-glow-emerald hover:-translate-y-1 active:scale-95 transition-all duration-300 group"
                     >
-                      <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                        <Leaf className="h-4.5 w-4.5 text-emerald-600" />
+                      <div className="w-12 h-12 rounded-xl bg-white border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 overflow-hidden">
+                        <Image src="/phase-vegetative.png" alt="Fase Vegetatif" width={40} height={40} className="object-contain" />
                       </div>
                       <span className="text-[11px] font-extrabold text-foreground tracking-tight block">Vegetatif</span>
                       <span className="text-[9px] text-muted-foreground mt-1 block leading-none font-medium">Daun & Batang</span>
@@ -104,8 +104,8 @@ export default function HomePage() {
                       href="/diagnosis?phase=f03"
                       className="flex flex-col items-center text-center p-4 rounded-2xl border border-zinc-200/80 bg-white/50 backdrop-blur-sm hover:bg-emerald-500/[0.03] hover:border-emerald-500 hover:shadow-glow-emerald hover:-translate-y-1 active:scale-95 transition-all duration-300 group"
                     >
-                      <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                        <CheckCircle className="h-4.5 w-4.5 text-emerald-600" />
+                      <div className="w-12 h-12 rounded-xl bg-white border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 overflow-hidden">
+                        <Image src="/phase-generative.png" alt="Fase Generatif" width={40} height={40} className="object-contain" />
                       </div>
                       <span className="text-[11px] font-extrabold text-foreground tracking-tight block">Generatif</span>
                       <span className="text-[9px] text-muted-foreground mt-1 block leading-none font-medium">Bunga & Buah</span>
