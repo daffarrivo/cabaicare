@@ -87,6 +87,52 @@ export function ResultCard({ result }: ResultCardProps) {
         </CardContent>
       </Card>
 
+      {/* Diagnosis Alternatif */}
+      {result.alternative_diagnoses.length > 0 && (
+        <Card className="rounded-3xl border border-zinc-200/60 bg-white shadow-sm overflow-hidden">
+          <CardHeader className="pb-3 border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
+            <div className="flex items-center gap-2">
+              <AlertTriangle className="h-4.5 w-4.5 text-yellow-600 animate-pulse" />
+              <h3 className="font-bold text-sm text-foreground uppercase tracking-widest">
+                Diagnosis Alternatif
+              </h3>
+            </div>
+          </CardHeader>
+          <CardContent className="p-5 md:p-6">
+            <p className="text-xs text-muted-foreground mb-5 font-semibold">
+              Berikut kemungkinan penyakit lain yang memiliki kecocokan gejala:
+            </p>
+            <div className="space-y-4">
+              {result.alternative_diagnoses.map((alt) => {
+                const pct = Math.round(alt.confidence * 100);
+                const barGradient = pct >= 60 ? "from-emerald-500 to-green-600" : pct >= 40 ? "from-amber-500 to-yellow-600" : "from-red-500 to-rose-600";
+                return (
+                  <div key={alt.disease.id} className="space-y-2 animate-fade-in-up">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-bold text-foreground">
+                        {alt.disease.name}
+                        <span className="text-[10px] text-muted-foreground font-mono ml-1.5 px-1.5 py-0.5 rounded bg-zinc-50 border border-zinc-200/60">
+                          {alt.disease.code}
+                        </span>
+                      </span>
+                      <span className="font-extrabold text-emerald-700">{pct}%</span>
+                    </div>
+                    <div className="h-2 w-full bg-zinc-100 rounded-full overflow-hidden border border-zinc-200/50">
+                      <div
+                        className={`h-full rounded-full bg-gradient-to-r ${barGradient} transition-all duration-1000 ease-out`}
+                        style={{
+                          width: `${pct}%`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
       {/* Deskripsi & Penyebab */}
       <Card className="rounded-3xl border border-zinc-200/60 bg-white shadow-sm overflow-hidden">
         <CardHeader className="pb-3 border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
@@ -187,52 +233,6 @@ export function ResultCard({ result }: ResultCardProps) {
           </CardContent>
         </Card>
       </div>
-
-      {/* Diagnosis Alternatif */}
-      {result.alternative_diagnoses.length > 0 && (
-        <Card className="rounded-3xl border border-zinc-200/60 bg-white shadow-sm overflow-hidden">
-          <CardHeader className="pb-3 border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
-            <div className="flex items-center gap-2">
-              <AlertTriangle className="h-4.5 w-4.5 text-yellow-600 animate-pulse" />
-              <h3 className="font-bold text-sm text-foreground uppercase tracking-widest">
-                Diagnosis Alternatif
-              </h3>
-            </div>
-          </CardHeader>
-          <CardContent className="p-5 md:p-6">
-            <p className="text-xs text-muted-foreground mb-5 font-semibold">
-              Berikut kemungkinan penyakit lain yang memiliki kecocokan gejala:
-            </p>
-            <div className="space-y-4">
-              {result.alternative_diagnoses.map((alt) => {
-                const pct = Math.round(alt.confidence * 100);
-                const barGradient = pct >= 60 ? "from-emerald-500 to-green-600" : pct >= 40 ? "from-amber-500 to-yellow-600" : "from-red-500 to-rose-600";
-                return (
-                  <div key={alt.disease.id} className="space-y-2 animate-fade-in-up">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-foreground">
-                        {alt.disease.name}
-                        <span className="text-[10px] text-muted-foreground font-mono ml-1.5 px-1.5 py-0.5 rounded bg-zinc-50 border border-zinc-200/60">
-                          {alt.disease.code}
-                        </span>
-                      </span>
-                      <span className="font-extrabold text-emerald-700">{pct}%</span>
-                    </div>
-                    <div className="h-2 w-full bg-zinc-100 rounded-full overflow-hidden border border-zinc-200/50">
-                      <div
-                        className={`h-full rounded-full bg-gradient-to-r ${barGradient} transition-all duration-1000 ease-out`}
-                        style={{
-                          width: `${pct}%`,
-                        }}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 }
