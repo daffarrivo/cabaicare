@@ -1,5 +1,4 @@
 "use client";
-
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
@@ -11,7 +10,6 @@ interface LogoProps {
 export function Logo({ className, showText = true, textClassName }: LogoProps) {
   return (
     <div className="flex items-center gap-3 select-none group">
-      {/* High-End Geometric Vector Logo */}
       <svg
         viewBox="0 0 32 32"
         fill="none"
@@ -19,49 +17,40 @@ export function Logo({ className, showText = true, textClassName }: LogoProps) {
         className={cn("h-8 w-8 transition-transform duration-300 group-hover:scale-105 shrink-0", className)}
       >
         <defs>
-          <linearGradient id="chiliGrad" x1="8" y1="8" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#DC2626" />
+          <linearGradient id="chiliGrad" x1="12" y1="9" x2="23" y2="27" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#EF4444" />
             <stop offset="100%" stopColor="#991B1B" />
           </linearGradient>
-          <linearGradient id="leafGrad" x1="12" y1="4" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+          <linearGradient id="leafGrad" x1="17.5" y1="7" x2="24" y2="13.5" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="#34D399" />
             <stop offset="100%" stopColor="#059669" />
           </linearGradient>
-          <linearGradient id="ringGrad" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#10B981" stopOpacity="0.12" />
-            <stop offset="100%" stopColor="#EF4444" stopOpacity="0.04" />
+          <linearGradient id="bgGrad" x1="3" y1="3" x2="29" y2="29" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#F0FDF4" />
+            <stop offset="100%" stopColor="#DCFCE7" />
           </linearGradient>
         </defs>
 
-        {/* Ambient Ring Shield */}
-        <circle cx="16" cy="16" r="14.5" fill="url(#ringGrad)" stroke="#E2E8F0" strokeWidth="1.25" />
+        {/* Soft emerald background circle with a fine border */}
+        <circle cx="16" cy="16" r="13" fill="url(#bgGrad)" stroke="#A7F3D0" strokeWidth="1" />
 
-        {/* Dynamic Botanical Shield Line */}
+        {/* Dynamic chili body */}
         <path
-          d="M6.5 16C6.5 8 12.5 3.5 20.5 3.5C22.5 5 24 7.5 24 9.5"
-          stroke="#059669"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        {/* Chili Pepper Body */}
-        <path
-          d="M13.5 9C13.5 9 15.5 15 22.5 17C20.5 19.5 17.5 22 14 22C10 22 8 19.5 8 16.5C8 12 13.5 9 13.5 9Z"
+          d="M18 9C18 9 19.5 11.5 18 13.5C16 16 13.5 16 12 19C10 23 12 26.5 15.5 27C19 27.5 22.5 25 23 20.5C23.5 16 21 11.5 18 9Z"
           fill="url(#chiliGrad)"
         />
 
-        {/* Chili Leaf Stem */}
+        {/* Elegant leaf stem */}
         <path
-          d="M13.5 9C16.5 7 20.5 7.5 22.5 10C19 10 15.5 12 13.5 9Z"
+          d="M18 9C19.5 7.5 22 7 24 8.5C22 10 20 10.5 17.5 13.5C17.3 13.2 17.4 12.8 17.5 12.5C17.7 12.2 18 9 18 9Z"
           fill="url(#leafGrad)"
         />
 
-        {/* Clean Plus Icon representing medical/care context */}
+        {/* Clean Plus Icon for care context */}
         <path
-          d="M23 23H27M25 21V25"
-          stroke="#059669"
-          strokeWidth="1.75"
+          d="M8 12H12M10 10V14"
+          stroke="#10B981"
+          strokeWidth="2"
           strokeLinecap="round"
         />
       </svg>
@@ -78,3 +67,4 @@ export function Logo({ className, showText = true, textClassName }: LogoProps) {
     </div>
   );
 }
+
