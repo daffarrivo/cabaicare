@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "CabaiCare - Sistem Pakar Diagnosis Penyakit Cabai",
   description:
     "Deteksi dini masalah tanaman cabai menggunakan metode Forward Chaining dan Certainty Factor.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
