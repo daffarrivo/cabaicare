@@ -217,7 +217,7 @@ export default function DiagnosisPage() {
                   <Button
                     disabled={!phaseId}
                     onClick={() => setStep(2)}
-                    className="group rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-sm px-6 py-2.5 shadow-glow-emerald hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
+                    className="group"
                   >
                     Lanjut
                     <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -266,9 +266,9 @@ export default function DiagnosisPage() {
                         <button
                           key={cat.id}
                           onClick={() => setActiveCategory(cat.id)}
-                          className={`px-3.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all border ${
+                          className={`px-3.5 py-1.5 rounded-lg text-[10px] font-extrabold uppercase tracking-wider transition-all border duration-150 active:scale-[0.98] ${
                             isActive
-                              ? "bg-gradient-to-r from-emerald-600 to-green-600 text-white border-emerald-500 shadow-sm"
+                              ? "bg-emerald-50 border-emerald-600 text-emerald-800 shadow-2xs"
                               : "bg-white text-muted-foreground border-zinc-200 hover:text-emerald-700 hover:border-emerald-500/30"
                           }`}
                         >
@@ -308,7 +308,6 @@ export default function DiagnosisPage() {
                   <Button
                     variant="outline"
                     onClick={() => setStep(1)}
-                    className="rounded-xl border-zinc-200 bg-white hover:bg-muted text-foreground font-semibold text-sm hover:-translate-y-0.5 transition-all duration-300"
                   >
                     <ArrowLeft className="mr-1.5 h-4 w-4" />
                     Kembali
@@ -316,7 +315,7 @@ export default function DiagnosisPage() {
                   <Button
                     disabled={selectedCount === 0}
                     onClick={() => setStep(3)}
-                    className="group rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-sm px-6 py-2.5 shadow-glow-emerald hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
+                    className="group"
                   >
                     Lanjut
                     <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -374,14 +373,13 @@ export default function DiagnosisPage() {
                   <Button
                     variant="outline"
                     onClick={() => setStep(2)}
-                    className="rounded-xl border-zinc-200 bg-white hover:bg-muted text-foreground font-semibold text-sm hover:-translate-y-0.5 transition-all duration-300"
                   >
                     <ArrowLeft className="mr-1.5 h-4 w-4" />
                     Kembali
                   </Button>
                   <Button
                     onClick={handleDiagnose}
-                    className="group rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-sm px-6 py-2.5 shadow-glow-emerald hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
+                    className="group"
                   >
                     Proses Diagnosis
                     <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -426,8 +424,8 @@ export default function DiagnosisPage() {
                     <h2 className="text-sm font-bold text-red-700 uppercase tracking-wider">Diagnosis Gagal</h2>
                     <p className="text-xs font-semibold text-muted-foreground">{error}</p>
                     <Button
+                      variant="destructive"
                       onClick={handleReset}
-                      className="rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-sm shadow-sm hover:-translate-y-0.5 transition-all duration-300"
                     >
                       <RotateCcw className="mr-1.5 h-4 w-4" />
                       Coba Lagi
@@ -442,7 +440,6 @@ export default function DiagnosisPage() {
                   <div className="flex justify-center gap-3">
                     <Button
                       onClick={handleReset}
-                      className="rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-sm px-6 py-2.5 shadow-glow-emerald hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
                     >
                       <RotateCcw className="mr-1.5 h-4 w-4" />
                       Diagnosis Baru

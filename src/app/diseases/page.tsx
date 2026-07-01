@@ -122,10 +122,10 @@ export default function DiseasesPage() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4.5 py-2 rounded-full text-[10px] font-extrabold uppercase tracking-wider transition-all border ${
+                className={`px-4.5 py-2 rounded-lg text-[10px] font-extrabold uppercase tracking-wider transition-all border duration-150 active:scale-[0.98] ${
                   activeCategory === cat.id
-                    ? "bg-gradient-to-r from-emerald-600 to-green-600 text-white border-emerald-500 shadow-sm"
-                    : "bg-white text-muted-foreground border-zinc-200 hover:text-emerald-700 hover:border-emerald-500/30 hover:bg-emerald-500/5"
+                    ? "bg-emerald-50 border-emerald-600 text-emerald-800 shadow-2xs"
+                    : "bg-white text-muted-foreground border-zinc-200 hover:text-emerald-700 hover:border-emerald-500/30"
                 }`}
               >
                 {cat.label}
@@ -289,7 +289,7 @@ export default function DiseasesPage() {
               <Button
                 onClick={() => setSelectedDisease(null)}
                 variant="outline"
-                className="rounded-xl border border-zinc-200 bg-white hover:bg-zinc-100 text-foreground font-semibold text-xs py-2.5 px-5 transition-all duration-300"
+                size="sm"
               >
                 Tutup Detail
               </Button>

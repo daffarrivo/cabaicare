@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Leaf } from "lucide-react";
+import { Logo } from "@/components/layout/logo";
 
 export function Footer() {
   return (
@@ -7,12 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-6 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="p-2 rounded-xl bg-primary/10 border border-primary/20">
-                <Leaf className="h-5 w-5 text-primary" />
-              </div>
-              <span className="font-extrabold text-lg text-foreground tracking-tight">CabaiCare</span>
-            </div>
+            <Logo textClassName="text-lg" />
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               Sistem Pakar Diagnosis Penyakit Tanaman Cabai menggunakan kombinasi metode Forward Chaining dan Certainty Factor berbasis aturan pakar.
             </p>

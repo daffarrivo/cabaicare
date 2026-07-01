@@ -80,9 +80,9 @@ export default function HomePage() {
                   <div className="grid grid-cols-3 gap-3">
                     <Link
                       href="/diagnosis?phase=f01"
-                      className="flex flex-col items-center text-center p-4 rounded-2xl border border-zinc-200/80 bg-white/50 backdrop-blur-sm hover:bg-emerald-500/[0.03] hover:border-emerald-500 hover:shadow-glow-emerald hover:-translate-y-1 active:scale-95 transition-all duration-300 group"
+                      className="flex flex-col items-center text-center p-4 rounded-xl border border-zinc-200 bg-white hover:bg-emerald-500/[0.02] hover:border-emerald-600 hover:shadow-sm active:scale-[0.98] transition-all duration-200 group"
                     >
-                      <div className="w-16 h-16 rounded-xl bg-white border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 overflow-hidden">
+                      <div className="w-16 h-16 rounded-xl bg-white border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:scale-105 group-hover:rotate-1 transition-all duration-200 overflow-hidden">
                         <Image src="/phase-seedling.png" alt="Fase Pembibitan" width={56} height={56} className="object-contain" />
                       </div>
                       <span className="text-[11px] font-extrabold text-foreground tracking-tight block">Pembibitan</span>
@@ -91,9 +91,9 @@ export default function HomePage() {
                     
                     <Link
                       href="/diagnosis?phase=f02"
-                      className="flex flex-col items-center text-center p-4 rounded-2xl border border-zinc-200/80 bg-white/50 backdrop-blur-sm hover:bg-emerald-500/[0.03] hover:border-emerald-500 hover:shadow-glow-emerald hover:-translate-y-1 active:scale-95 transition-all duration-300 group"
+                      className="flex flex-col items-center text-center p-4 rounded-xl border border-zinc-200 bg-white hover:bg-emerald-500/[0.02] hover:border-emerald-600 hover:shadow-sm active:scale-[0.98] transition-all duration-200 group"
                     >
-                      <div className="w-16 h-16 rounded-xl bg-white border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 overflow-hidden">
+                      <div className="w-16 h-16 rounded-xl bg-white border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:scale-105 group-hover:rotate-1 transition-all duration-200 overflow-hidden">
                         <Image src="/phase-vegetative.png" alt="Fase Vegetatif" width={56} height={56} className="object-contain" />
                       </div>
                       <span className="text-[11px] font-extrabold text-foreground tracking-tight block">Vegetatif</span>
@@ -102,9 +102,9 @@ export default function HomePage() {
                     
                     <Link
                       href="/diagnosis?phase=f03"
-                      className="flex flex-col items-center text-center p-4 rounded-2xl border border-zinc-200/80 bg-white/50 backdrop-blur-sm hover:bg-emerald-500/[0.03] hover:border-emerald-500 hover:shadow-glow-emerald hover:-translate-y-1 active:scale-95 transition-all duration-300 group"
+                      className="flex flex-col items-center text-center p-4 rounded-xl border border-zinc-200 bg-white hover:bg-emerald-500/[0.02] hover:border-emerald-600 hover:shadow-sm active:scale-[0.98] transition-all duration-200 group"
                     >
-                      <div className="w-16 h-16 rounded-xl bg-white border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 overflow-hidden">
+                      <div className="w-16 h-16 rounded-xl bg-white border border-emerald-100/50 flex items-center justify-center mb-2.5 group-hover:scale-105 group-hover:rotate-1 transition-all duration-200 overflow-hidden">
                         <Image src="/phase-generative.png" alt="Fase Generatif" width={56} height={56} className="object-contain" />
                       </div>
                       <span className="text-[11px] font-extrabold text-foreground tracking-tight block">Generatif</span>
@@ -288,10 +288,10 @@ export default function HomePage() {
                 
                 <Link
                   href="/diagnosis"
-                  className="inline-flex items-center gap-2 group rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-xs uppercase tracking-wider px-5 py-3 shadow-glow-emerald hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 animate-pulse hover:animate-none"
+                  className="inline-flex items-center gap-2 group rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white border border-emerald-800 shadow-sm font-semibold text-xs uppercase tracking-wider px-5 py-3.5 active:scale-[0.98] transition-all duration-150"
                 >
                   Mulai Diagnosis
-                  <ArrowRight className="h-4.5 w-4.5 transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </div>
 
