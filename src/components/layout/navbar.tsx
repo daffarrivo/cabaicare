@@ -17,7 +17,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] max-w-6xl rounded-2xl border border-border bg-white/90 backdrop-blur-xl shadow-elevated h-16 flex items-center justify-between px-4 sm:px-6 transition-all duration-300">
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] max-w-6xl rounded-2xl border border-border bg-white/90 backdrop-blur-xl shadow-elevated h-16 flex items-center justify-between px-4 sm:px-6 transform-gpu will-change-transform transition-[border-color,background-color,box-shadow] duration-300">
       <Link href="/">
         <Logo />
       </Link>

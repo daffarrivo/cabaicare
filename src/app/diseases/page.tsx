@@ -68,8 +68,8 @@ export default function DiseasesPage() {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#FAF9F5] via-[#FAF8F5] to-[#EAEFEA] text-foreground relative overflow-hidden">
       {/* Subtle Warm Ambient Glows */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-20 right-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none transform-gpu will-change-transform" />
+      <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none transform-gpu will-change-transform" />
 
       <Navbar />
       {/* Premium Welcoming Header Section */}
@@ -141,7 +141,7 @@ export default function DiseasesPage() {
                 <Card
                   key={disease.id}
                   onClick={() => setSelectedDisease(disease)}
-                  className="border border-zinc-200/60 bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-[0_12px_35px_rgba(0,0,0,0.05)] hover:border-emerald-500 hover:-translate-y-0.5 transition-all duration-300 rounded-2xl overflow-hidden group cursor-pointer flex flex-col justify-between"
+                  className="border border-zinc-200/60 bg-white shadow-sm hover:shadow-[0_12px_35px_rgba(0,0,0,0.05)] hover:border-emerald-500 hover:-translate-y-0.5 transition-[transform,box-shadow,border-color] duration-300 rounded-2xl overflow-hidden group cursor-pointer flex flex-col justify-between"
                 >
                   <CardHeader className="p-5 pb-3">
                     <div className="flex items-center justify-between gap-2 mb-3">

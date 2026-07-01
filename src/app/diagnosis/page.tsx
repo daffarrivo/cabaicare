@@ -137,8 +137,8 @@ export default function DiagnosisPage() {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#FAF9F5] via-[#FAF8F5] to-[#EAEFEA] text-foreground relative overflow-hidden">
       {/* Subtle Warm Ambient Glows */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-20 right-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none transform-gpu will-change-transform" />
+      <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none transform-gpu will-change-transform" />
 
       <Navbar />
       <main className="flex-1 pt-28 pb-20 md:pt-32 md:pb-28 relative z-10">
@@ -160,7 +160,7 @@ export default function DiagnosisPage() {
 
           {/* Step 1: Phase Selection */}
           {step === 1 && (
-            <Card className="border border-zinc-200/60 bg-white/80 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.04),0_1px_3px_rgba(0,0,0,0.02)] rounded-3xl overflow-hidden animate-fade-in-up">
+            <Card className="border border-zinc-200/60 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04),0_1px_3px_rgba(0,0,0,0.02)] rounded-3xl overflow-hidden animate-fade-in-up">
               <CardHeader className="border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center">
@@ -229,7 +229,7 @@ export default function DiagnosisPage() {
 
           {/* Step 2: Symptom Selection */}
           {step === 2 && (
-            <Card className="border border-zinc-200/60 bg-white/80 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.04),0_1px_3px_rgba(0,0,0,0.02)] rounded-3xl overflow-hidden animate-fade-in-up">
+            <Card className="border border-zinc-200/60 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04),0_1px_3px_rgba(0,0,0,0.02)] rounded-3xl overflow-hidden animate-fade-in-up">
               <CardHeader className="border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
@@ -327,7 +327,7 @@ export default function DiagnosisPage() {
 
           {/* Step 3: Certainty Factor */}
           {step === 3 && (
-            <Card className="border border-zinc-200/60 bg-white/80 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.04),0_1px_3px_rgba(0,0,0,0.02)] rounded-3xl overflow-hidden animate-fade-in-up">
+            <Card className="border border-zinc-200/60 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04),0_1px_3px_rgba(0,0,0,0.02)] rounded-3xl overflow-hidden animate-fade-in-up">
               <CardHeader className="border-b border-zinc-100 p-5 md:p-6 bg-zinc-50/50">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center">
@@ -393,7 +393,7 @@ export default function DiagnosisPage() {
           {step === 4 && (
             <div className="animate-fade-in-up">
               {isLoading && (
-                <Card className="border border-zinc-200/60 bg-white/80 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.04)] rounded-3xl overflow-hidden">
+                <Card className="border border-zinc-200/60 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04)] rounded-3xl overflow-hidden">
                   <CardContent className="py-20 text-center space-y-6 flex flex-col items-center justify-center">
                     <div className="relative flex items-center justify-center w-24 h-24">
                       {/* Spinning background glow */}

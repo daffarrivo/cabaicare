@@ -32,8 +32,8 @@ export default function HomePage() {
         {/* Welcoming Hero Section */}
         <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-[#FAF9F5] via-[#FAF8F5] to-[#EAEFEA] bg-dot-grid overflow-hidden">
           {/* Subtle Warm Ambient Glows */}
-          <div className="absolute top-20 right-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-20 right-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none transform-gpu will-change-transform" />
+          <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none transform-gpu will-change-transform" />
 
           <div className="container mx-auto px-6 max-w-6xl relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -141,7 +141,7 @@ export default function HomePage() {
 
         {/* Bento Grid Features Section */}
         <section className="py-20 md:py-28 bg-white border-t border-border/40 relative overflow-hidden bg-dot-grid">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/[0.02] rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/[0.02] rounded-full blur-[120px] pointer-events-none transform-gpu will-change-transform" />
           <div className="container mx-auto px-6 max-w-6xl relative z-10">
             <div className="text-center mb-16 space-y-3">
               <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground uppercase">
@@ -155,7 +155,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
               
               {/* Card 1: Growth Phase (Large Bento 2/3 Width) */}
-              <Card className="lg:col-span-7 border border-zinc-200/60 bg-white/80 backdrop-blur-xs shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-emerald-500/80 hover:-translate-y-1 transition-all duration-300 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden group">
+              <Card className="lg:col-span-7 border border-zinc-200/60 bg-white shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-emerald-500/80 hover:-translate-y-1 transition-[transform,box-shadow,border-color] duration-300 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden group">
                 <div className="flex flex-col md:flex-row gap-8 items-start md:items-center justify-between h-full">
                   <div className="space-y-4 max-w-sm">
                     <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/50 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
@@ -187,7 +187,7 @@ export default function HomePage() {
               </Card>
 
               {/* Card 2: Catalog Diseases (Small Bento 1/3 Width) */}
-              <Card className="lg:col-span-5 border border-zinc-200/60 bg-white/80 backdrop-blur-xs shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-emerald-500/80 hover:-translate-y-1 transition-all duration-300 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden group">
+              <Card className="lg:col-span-5 border border-zinc-200/60 bg-white shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-emerald-500/80 hover:-translate-y-1 transition-[transform,box-shadow,border-color] duration-300 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden group">
                 <div className="flex flex-col justify-between h-full space-y-6">
                   <div className="space-y-4">
                     <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/50 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
@@ -214,7 +214,7 @@ export default function HomePage() {
               </Card>
 
               {/* Card 3: Pakar Digital (Bento Medium 1/2 Width) */}
-              <Card className="lg:col-span-6 border border-zinc-200/60 bg-white/80 backdrop-blur-xs shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-emerald-500/80 hover:-translate-y-1 transition-all duration-300 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden group">
+              <Card className="lg:col-span-6 border border-zinc-200/60 bg-white shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-emerald-500/80 hover:-translate-y-1 transition-[transform,box-shadow,border-color] duration-300 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden group">
                 <div className="flex flex-col justify-between h-full space-y-6">
                   <div className="space-y-4">
                     <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/50 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
@@ -242,7 +242,7 @@ export default function HomePage() {
               </Card>
 
               {/* Card 4: Tindakan Nyata (Bento Medium 1/2 Width) */}
-              <Card className="lg:col-span-6 border border-zinc-200/60 bg-white/80 backdrop-blur-xs shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-emerald-500/80 hover:-translate-y-1 transition-all duration-300 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden group">
+              <Card className="lg:col-span-6 border border-zinc-200/60 bg-white shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-emerald-500/80 hover:-translate-y-1 transition-[transform,box-shadow,border-color] duration-300 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden group">
                 <div className="flex flex-col justify-between h-full space-y-6">
                   <div className="space-y-4">
                     <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/50 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
@@ -270,7 +270,7 @@ export default function HomePage() {
 
         {/* How It Works Section - Vertical Timeline */}
         <section className="py-20 md:py-28 bg-zinc-50 border-t border-border/40 relative overflow-hidden bg-dot-grid">
-          <div className="absolute top-10 right-10 w-80 h-80 bg-emerald-500/[0.01] rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute top-10 right-10 w-80 h-80 bg-emerald-500/[0.01] rounded-full blur-[80px] pointer-events-none transform-gpu will-change-transform" />
           <div className="container mx-auto px-6 max-w-6xl relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
               
@@ -301,7 +301,7 @@ export default function HomePage() {
                 <div className="absolute left-0 top-6 bottom-6 w-0.5 bg-gradient-to-b from-emerald-500 via-zinc-200 to-transparent" />
 
                 {howItWorks.map((item, index) => (
-                  <div key={item.step} className="flex gap-6 relative group bg-white/40 backdrop-blur-xs p-5 rounded-2xl border border-transparent hover:border-zinc-200/50 hover:bg-white/80 hover:shadow-xs transition-all duration-300">
+                  <div key={item.step} className="flex gap-6 relative group bg-white/70 p-5 rounded-2xl border border-transparent hover:border-zinc-200/50 hover:bg-white hover:shadow-xs transition-[background-color,border-color,box-shadow] duration-300">
                     {/* Bullet indicator */}
                     <div className="absolute -left-[21px] md:-left-[37px] top-11 w-2.5 h-2.5 rounded-full bg-white border-2 border-emerald-500 group-hover:bg-emerald-500 group-hover:scale-125 group-hover:ring-4 group-hover:ring-emerald-500/20 transition-all duration-300" />
 
